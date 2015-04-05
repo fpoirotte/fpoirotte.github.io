@@ -1,0 +1,5 @@
+/.buildinfo
+/.doctrees
+/_sources
+*.pyc
+*.pyo

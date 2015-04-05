@@ -1,0 +1,1 @@
+Search.setIndex({envversion:42,terms:{just:1},objtypes:{},objnames:{},filenames:["index","2015-04-05-Test"],titles:["My Blog","This is a test"],objects:{},titleterms:{blog:0,test:1,thi:1}})

@@ -1,2 +1,2 @@
 all:
-	sphinx-build -c . -b html -d docs/enduser/doctrees src ./
+	sphinx-build -c . -b html -d .doctrees src ./
