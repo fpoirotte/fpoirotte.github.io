@@ -8,10 +8,10 @@
   <generator uri="http://blog.readthedocs.org" version="0.5.1">ABlog</generator>
   <entry xml:base="https://fpoirotte.github.io/blog/atom.xml">
     <title type="text">First blog entry</title>
-    <id>https://fpoirotte.github.io/2015/04/05/First blog entry.html</id>
+    <id>https://fpoirotte.github.io/blog/2015/04/05/First blog entry.html</id>
     <updated>2015-04-05T00:00:00Z</updated>
     <published>2015-04-05T00:00:00Z</published>
-    <link href="https://fpoirotte.github.io/2015/04/05/First blog entry.html" />
+    <link href="https://fpoirotte.github.io/blog/2015/04/05/First blog entry.html" />
     <author>
       <name>François Poirotte</name>
     </author>
