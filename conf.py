@@ -283,7 +283,7 @@ html_short_title = 'My Blog'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = []
+html_static_path = ['static/']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
@@ -354,5 +354,6 @@ extlinks = {
     'pear': ('http://pear.php.net/%s', 'pear.php.net/'),
     'pecl': ('http://pecl.php.net/%s', 'pecl.php.net/'),
     'rfc': ('https://tools.ietf.org/html/rfc%s', 'RFC '),
+    'psr': ('http://www.php-fig.org/psr/psr-%s/', 'PSR-'),
 }
 

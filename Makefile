@@ -1,2 +1,4 @@
+SPHINX_OPTIONS ?=
+
 all:
-	sphinx-build -c . -b html -d .doctrees src ./
+	sphinx-build $(SPHINX_OPTIONS) -c . -b html -d .doctrees src ./
