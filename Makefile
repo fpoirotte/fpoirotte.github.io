@@ -1,4 +1,4 @@
-SPHINX_OPTIONS ?=
+SPHINX_OPTIONS ?= -a
 SPHINX_OBJS = \
 	genindex \
 	index \
@@ -6,8 +6,11 @@ SPHINX_OBJS = \
 	blog
 SPHINX_SUFFIX = .html
 
-all:
+all: purge
 	sphinx-build $(SPHINX_OPTIONS) -c . -b html -d .doctrees src ./
+
+purge:
+	$(RM) -r blog/
 
 publish: all
 	git add $(SPHINX_OBJS:=$(SPHINX_SUFFIX))
@@ -16,4 +19,4 @@ publish: all
 	git commit -S -a
 	git push
 
-.PHONY: all publish
+.PHONY: all purge publish
