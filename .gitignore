@@ -3,3 +3,4 @@
 /_sources
 *.pyc
 *.pyo
+.*.swp
