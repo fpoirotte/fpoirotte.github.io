@@ -4,6 +4,11 @@ Clicky's blog
 Hello! My name is François "Clicky" Poirotte and this is my blog where
 I discuss various topics related to programming and computers in general.
 
+Most recent posts:
+
+.. postlist:: 5
+
+
 You may also check out the various projects I contribute to:
 
 * `phpfarm`_
