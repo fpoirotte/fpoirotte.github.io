@@ -27,7 +27,7 @@ You may also check out the various projects I contribute to:
 
 * `XRL`_
 
-  An easy-to-user XML-RPC library (both as a client and a server).
+  An easy-to-use XML-RPC library (both as a client and a server).
   Its syntax feels very natural, it supports many common XML-RPC extensions
   and it handles type autoboxing.
 
