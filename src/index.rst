@@ -1,7 +1,7 @@
 Clicky's blog
 =============
 
-Hello! My name is François "Clicky" Poirotte and this is my blog where
+Hello! My name is François "Clicky" Poirotte and this here is the blog where
 I discuss various topics related to programming and computers in general.
 
 Most recent posts:
@@ -11,30 +11,31 @@ Most recent posts:
 
 You may also check out the various projects I contribute to:
 
-* `phpfarm`_
+*   `phpfarm`_
 
-  My custom fork of `Christian Weiske`_'s phpfarm project.
-  phpfarm allows you to run several versions of PHP alongside each other.
+    My custom fork of `Christian Weiske`_'s phpfarm project.
+    phpfarm allows you to run several versions of PHP alongside each other.
 
-* `Erebot`_
+*   `Erebot`_
 
-  A modular IRC bot written in PHP.
+    A modular IRC bot written in PHP.
 
-* `Plop`_
+*   `Plop`_
 
-  A user-friendly yet very flexible logging system for PHP applications
-  (compatible with the :psr:`3` logging interface).
+    A user-friendly yet very flexible logging system for PHP applications
+    (compatible with the :psr:`3` logging interface).
 
-* `XRL`_
+*   `XRL`_
 
-  An easy-to-use XML-RPC library (both as a client and a server) with a syntax
-  that feels very natural. It supports many common XML-RPC extensions
-  and it handles type autoboxing.
+    An easy-to-use XML-RPC library for PHP (both as a client and a server)
+    with a syntax that feels very natural.
 
-* `Pssht`_
+    It supports many common XML-RPC extensions and it handles type autoboxing.
 
-  A PHP library for building SSH servers with support for various
-  advanced features.
+*   `Pssht`_
+
+    A PHP library for building SSH servers with support for various
+    advanced features.
 
 
 ..  _`phpfarm`:

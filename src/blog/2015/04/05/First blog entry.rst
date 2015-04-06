@@ -11,72 +11,74 @@ As I mostly develop using PHP & Python, most blog entries will be
 about these programming languages.
 I'll probably also discuss specific projects I'm working on:
 
-* `phpfarm`_
+*   `phpfarm`_
 
-  My custom fork of `Christian Weiske`_'s phpfarm project.
-  phpfarm allows you to run several versions of PHP alongside each other.
+    My custom fork of `Christian Weiske`_'s phpfarm project.
+    phpfarm allows you to run several versions of PHP alongside each other.
 
-* `Erebot`_
+*   `Erebot`_
 
-  A modular IRC bot written in PHP
+    A modular IRC bot written in PHP
 
-* ...and its sub-projects/sub-components:
+*   ...and its sub-projects/sub-components:
 
-  * `Plop`_
+    *   `Plop`_
 
-    A user-friendly yet very flexible logging system for PHP applications
-    (compatible with the :psr:`3` logging interface)
+        A user-friendly yet very flexible logging system for PHP applications
+        (compatible with the :psr:`3` logging interface)
 
-  * `Erebot/URI`_
+    *   `Erebot/URI`_
 
-    A library made for parsing and generating
-    Uniform Resource Identifiers (URIs)
+        A library made for parsing and generating
+        Uniform Resource Identifiers (URIs)
 
-  * `Erebot/Timer`_
+    *   `Erebot/Timer`_
 
-    A library to run some code after a certain amount of time has passed
+        A PHP library to run some code after a certain amount
+        of time has passed
 
-  * `Erebot/CallableWrapper`_
+    *   `Erebot/CallableWrapper`_
 
-    A special wrapper to emulate the "callable" typehint in PHP 5.3.x.
+        A special wrapper to emulate the "callable" typehint in PHP 5.3.x.
 
-  * `Erebot/DOM`_
+    *   `Erebot/DOM`_
 
-    A PHP class that adds `Schematron`_
-    validation capabilities to the standard `DOM extension`_.
+        A PHP class that adds `Schematron`_ validation capabilities
+        to the standard `DOM extension`_.
 
-  * `Erebot/Intl`_
+    *   `Erebot/Intl`_
 
-    A library to handle internationalisation (i18n) of PHP applications
-    using `gettext catalogs`_.
+        A library to handle internationalisation (i18n) of PHP applications
+        using `gettext catalogs`_.
 
-  * `Erebot/Styling`_
+    *   `Erebot/Styling`_
 
-    A library to create formatted IRC messages using HTML-like markup.
-    It can handle complex i18n rules, lists and arrays, colors, etc.
+        A library to create formatted IRC messages using HTML-like markup.
+        It can handle complex i18n rules, lists and arrays, colors, etc.
 
-* `XRL`_
+*   `XRL`_
 
-  An easy-to-use XML-RPC library (both as a client and a server) with a syntax
-  that feels very natural. It supports many common XML-RPC extensions
-  and it handles type autoboxing.
+    An easy-to-use XML-RPC library for PHP (both as a client and a server)
+    with a syntax that feels very natural.
 
-* `Pssht`_
+    It supports many common XML-RPC extensions and it handles type autoboxing.
 
-  A PHP library for building SSH servers with support for various
-  advanced features:
+*   `Pssht`_
 
-  * compression
-  * counter mode (ctr) ciphers
-  * SHA-2
-  * ECDH & ECDSA
-  * UMAC
-  * AEAD (eg. AES-GCM)
-  * Curve25519 & Ed25519
-  * ChaCha20-Poly1305
-  * ...
+    A PHP library for building SSH servers with support for various
+    advanced features:
 
-* ...and probably others too :)
+    *   compression
+    *   counter mode (ctr) ciphers
+    *   SHA-2
+    *   ECDH & ECDSA
+    *   UMAC
+    *   AEAD (eg. AES-GCM)
+    *   Curve25519 & Ed25519
+    *   ChaCha20-Poly1305
+    *   ...
+
+*   ...and probably others too :)
 
 
 ..  _`phpfarm`:
