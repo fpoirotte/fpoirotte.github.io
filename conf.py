@@ -15,7 +15,7 @@ import alabaster
 #blog_path = 'blog'
 
 # The “title” for the blog, used in acthive pages.  Default is ``'Blog'``.
-blog_title = u'My Blog'
+blog_title = u"Clicky's Blog"
 
 # Base URL for the website, required for generating feeds.
 # e.g. blog_baseurl = "http://example.com/"
@@ -88,7 +88,7 @@ post_date_format = '%b %d, %Y'
 # In addition, there are authors.html, languages.html, and locations.html
 # sidebars that link to author and location archive pages.
 html_sidebars = {
-    '**': [ 'postcard.html', 'navigation.html',
+    '**': [ 'postcard.html', 'homepage.html',
             'recentposts.html', 'tagcloud.html',
             'categories.html',  'archives.html',
             'searchbox.html',
@@ -179,7 +179,7 @@ source_encoding = 'utf-8'
 master_doc = 'index'
 
 # General information about the project.
-project = 'My Blog'
+project = "Clicky's Blog"
 author = 'Clicky'
 
 rst_prolog = \
@@ -271,7 +271,7 @@ html_theme_path = [alabaster.get_path()]
 html_title = u"François \"Clicky\" Poirotte's Blog"
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title = 'My Blog'
+html_short_title = "Clicky's Blog"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -306,7 +306,7 @@ html_last_updated_fmt = '%b %d, %Y'
 html_domain_indices = False
 
 # If false, no index is generated.
-#html_use_index = True
+html_use_index = False
 
 # If true, the index is split into individual pages for each letter.
 #html_split_index = False
@@ -355,7 +355,6 @@ extlinks = {
     'php': ('http://php.net/%s', ''),
     'pear': ('http://pear.php.net/%s', 'pear.php.net/'),
     'pecl': ('http://pecl.php.net/%s', 'pecl.php.net/'),
-    'rfc': ('https://tools.ietf.org/html/rfc%s', 'RFC '),
     'psr': ('http://www.php-fig.org/psr/psr-%s/', 'PSR-'),
 }
 

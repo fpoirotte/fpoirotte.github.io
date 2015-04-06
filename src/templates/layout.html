@@ -1,4 +1,8 @@
 {%- extends "basic/layout.html" %}
+{%- block htmltitle %}
+    {{ super() }}
+    <link rel="canonical" href="{{ ablog.page_url('/') }}" />
+{% endblock %}
 {%- block extrahead %}
   {{ super() }}
   {% if theme_touch_icon %}
