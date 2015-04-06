@@ -151,14 +151,19 @@ So this command effectively downloads and executes arbitrary PHP code
 off the Internet.</p>
 </li>
 </ol>
-<p>Think about it for a second, this is very similar remote code inclusion,
+<p>Think about it for a second, this is very similar to remote code inclusion,
 a security flaw that can do great damages to any system.
 This vulnerability is even more scary when you consider that Composer is then
 used to install dozens of other pieces of code (so-called &#8220;packages&#8221;).
-If the installer itself can be compromised, how can you be sure the code
+If the installer itself can be compromised, how sure can you be that the code
 it later installed is the one you intended?</p>
 <p>All is not lost though. There has been <a class="reference external" href="https://www.adayinthelifeof.nl/2012/10/15/installing-composer-russian-roulette/">rising concern</a> about this
-and <a class="reference external" href="https://github.com/composer/composer/issues/1074">other security issues</a> in Composer.</p>
+and <a class="reference external" href="https://github.com/composer/composer/issues/1074">other security issues</a> in Composer. I hope these issues will be fixed
+in the future. Meanwhile, it&#8217;s a risk I am (reluctantly) willing to take
+because the gain outweights it.</p>
+<hr class="docutils" />
+<p>What about you? Are there aspects of Composer you&#8217;re dissatisfied with?
+Please share your thoughts and experiences in the comments below.</p>
 <hr class="docutils" />
 <table class="docutils footnote" frame="void" id="fn-composer" rules="none">
 <colgroup><col class="label" /><col /></colgroup>

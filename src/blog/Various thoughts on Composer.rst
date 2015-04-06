@@ -133,20 +133,27 @@ Composer vulnerable:
     So this command effectively downloads and executes arbitrary PHP code
     off the Internet.
 
-Think about it for a second, this is very similar remote code inclusion,
+Think about it for a second, this is very similar to remote code inclusion,
 a security flaw that can do great damages to any system.
 This vulnerability is even more scary when you consider that Composer is then
 used to install dozens of other pieces of code (so-called "packages").
-If the installer itself can be compromised, how can you be sure the code
+If the installer itself can be compromised, how sure can you be that the code
 it later installed is the one you intended?
 
 All is not lost though. There has been `rising concern`_ about this
-and `other security issues`_ in Composer.
+and `other security issues`_ in Composer. I hope these issues will be fixed
+in the future. Meanwhile, it's a risk I am (reluctantly) willing to take
+because the gain outweights it.
 
 ..  _`rising concern`:
     https://www.adayinthelifeof.nl/2012/10/15/installing-composer-russian-roulette/
 ..  _`other security issues`:
     https://github.com/composer/composer/issues/1074
+
+----
+
+What about you? Are there aspects of Composer you're dissatisfied with?
+Please share your thoughts and experiences in the comments below.
 
 ----
 
