@@ -1,0 +1,11 @@
+Now, there are literally `tens of logging libraries`_ out there,
+like my very own `Plop`_. So, how do you (as a developer) choose
+which logging library to use with your own library/application?
+
+The correct answer is: you don't! Leave that choice to your users,
+they probably know better than you do what particular logging strategy
+will be best for their environment anyway (eg. sending logs to the
+Windows Event Log/syslog, storing them into a database, sending emails, ...).
+
+To be completely fair, you may provide 
+

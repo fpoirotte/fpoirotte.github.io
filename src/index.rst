@@ -4,10 +4,13 @@ Clicky's blog
 Hello! My name is François "Clicky" Poirotte and this here is the blog where
 I discuss various topics related to programming and computers in general.
 
+----
+
 Most recent posts:
 
 .. postlist:: 5
 
+----
 
 You may also check out the various projects I contribute to:
 
@@ -15,10 +18,6 @@ You may also check out the various projects I contribute to:
 
     My custom fork of `Christian Weiske`_'s phpfarm project.
     phpfarm allows you to run several versions of PHP alongside each other.
-
-*   `Erebot`_
-
-    A modular IRC bot written in PHP.
 
 *   `Plop`_
 
@@ -31,6 +30,10 @@ You may also check out the various projects I contribute to:
     with a syntax that feels very natural.
 
     It supports many common XML-RPC extensions and it handles type autoboxing.
+
+*   `Erebot`_
+
+    A modular IRC bot written in PHP.
 
 *   `Pssht`_
 

@@ -2,8 +2,9 @@
    :author: Clicky
    :language: en
 
+################
 First blog entry
-================
+################
 
 This is the very first post for my new blog about IT-related stuff!
 
