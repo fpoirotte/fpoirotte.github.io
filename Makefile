@@ -1,6 +1,5 @@
 SPHINX_OPTIONS ?= -a
 SPHINX_OBJS = \
-	genindex \
 	index \
 	search \
 	blog
