@@ -31,7 +31,7 @@ while keeping a certain level of abstraction, which in turn provides
 flexibility.
 
 This feature has always been available in Composer. In fact, it was one of the
-first few features highlighted on nelm.io `about Composer and Packagist`_.
+first few features from Composer and Packagist to be `highlighted on nelm.io`_.
 Still, this feature is very underused in my opinion.
 
 Take logging for example. Almost every piece of code I've come across recently
@@ -64,7 +64,7 @@ articles:
     is a reply to the previous article and gives insight into the principles
     of dependency inversion.
 
-..  _`about Composer and Packagist`:
+..  _`highlighted on nelm.io`:
     http://nelm.io/blog/2011/12/composer-part-2-impact/
 ..  _`tens of logging libraries for PHP`:
     https://packagist.org/providers/psr/log-implementation
