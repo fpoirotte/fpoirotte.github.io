@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     
-    <title>Various thoughts on Composer &mdash; François &#34;Clicky&#34; Poirotte&#39;s Blog</title>
+    <title>Various thoughts on Composer: Part 2 &mdash; François &#34;Clicky&#34; Poirotte&#39;s Blog</title>
     <link rel="canonical" href="https://fpoirotte.github.io/" />
 
     
@@ -57,31 +57,28 @@
             
   <blockquote>
 <div></div></blockquote>
-<div class="section" id="various-thoughts-on-composer">
-<h1>Various thoughts on Composer<a class="headerlink" href="#various-thoughts-on-composer" title="Permalink to this headline">¶</a></h1>
-<p>Before you read on, let me make this clear: I love Composer, I really do!
-It has brought a lot of improvements to the PHP ecosystem by providing
-a common package manager that all developers can use <a class="footnote-reference" href="#fn-composer" id="id1">[1]</a>.</p>
-<p>However, I sometimes feel it doesn&#8217;t quite deliver some
-of its early promises or that it still lacks some important features.</p>
-<p>The features I&#8217;m going to write about:</p>
-<ul class="simple">
-<li><a class="reference internal" href="#virtual-packages">Virtual packages</a></li>
-<li><a class="reference internal" href="#security">Security</a></li>
-</ul>
-<div class="section" id="virtual-packages">
-<h2>Virtual packages<a class="headerlink" href="#virtual-packages" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="various-thoughts-on-composer-part-2">
+<span id="id1"></span><h1>Various thoughts on Composer: Part 2<a class="headerlink" href="#various-thoughts-on-composer-part-2" title="Permalink to this headline">¶</a></h1>
+<p>This is the second and final post of a series of articles about what I find
+to be defective in Composer itself or in the way it is usually employed.</p>
+<p><a class="reference internal" href="2015/04/09/Various thoughts on Composer - Part 1.html#various-thoughts-on-composer-part-1"><em>Last time</em></a>,
+I wrote about my concerns on the way security is handled by Composer.
+This time, I&#8217;ll be writing about the use of virtual packages
+by the PHP community.</p>
+<div class="section" id="virtual-packages-and-composer">
+<h2>Virtual packages and Composer<a class="headerlink" href="#virtual-packages-and-composer" title="Permalink to this headline">¶</a></h2>
 <p>Virtual packages are an essential part of any package management system.
 They allow application and library developers to require a specific feature
 while keeping a certain level of abstraction, which in turn provides
 flexibility.</p>
-<p>This feature has always been available in Composer. In fact, it was one of the
-first few features from Composer and Packagist to be <a class="reference external" href="http://nelm.io/blog/2011/12/composer-part-2-impact/">highlighted on nelm.io</a>.
+<p>Virtual packages have always been available in Composer.
+In fact, they were one of the first few features from Composer and Packagist
+to be <a class="reference external" href="http://nelm.io/blog/2011/12/composer-part-2-impact/">highlighted on nelm.io</a>.
 Still, this feature is very underused in my opinion.</p>
 <p>Take logging for example. Almost every piece of code I&#8217;ve come across recently
 makes use of some logging library at one point or another to provide feedback
-about what it&#8217;s doing to its users. This is A Good Thing (and definitely
-something most PHP applications didn&#8217;t do just over a decade ago).</p>
+about what it&#8217;s doing. This is A Good Thing (and definitely something
+most PHP applications didn&#8217;t do just over a decade ago).</p>
 <p>Now, there are literally <a class="reference external" href="https://packagist.org/providers/psr/log-implementation">tens of logging libraries for PHP</a> out there,
 like my very own <a class="reference external" href="https://plop.readthedocs.org/en/latest/">Plop</a>. To help interoperability, the <a class="reference external" href="http://www.php-fig.org/"><abbr title="PHP Framework Interop Group">PHP-FIG</abbr></a> created the
 <abbr title="PHP Standards Recommendation #3">PSR-3</abbr>, a logging interface that logging libraries must implement.
@@ -104,76 +101,9 @@ nice examples of how to create and use virtual packages with Composer.</li>
 is a reply to the previous article and gives insight into the principles
 of dependency inversion.</li>
 </ul>
-</div>
-<div class="section" id="security">
-<h2>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
-<p>I work for a company that specializes in IT security among other things.
-As a result of that, I often apply the same technics I learned at work
-for my own usage. I also get frustrated whenever I hit a wall from a security
-standpoint due to some software that doesn&#8217;t apply basic security principles.
-Composer is one such software because it offers very little guarantees over
-what it installs.</p>
-<p>That last sentence may seem counter-intuitive since Composer is a package
-manager, so of course you&#8217;d expect it to install whatever it was told to
-install. But the thing is, Composer itself can easily be compromised.
-Heck, the installation instructions amount to:</p>
-<ul class="simple">
-<li>Download remote PHP code from the Internet</li>
-<li>Execute said code on your computer</li>
-</ul>
-<p>Okay, so I hear you screaming &#8220;but the code is downloaded using HTTPS,
-so this is secure!&#8221; There are two problems however that still make
-Composer vulnerable:</p>
-<ol class="arabic">
-<li><p class="first">First, it&#8217;s quite easy to obtain a <strong>valid</strong> certificate for
-<a class="reference external" href="https://getcomposer.org/">https://getcomposer.org/</a>. Also, you could just create your own
-self-signed certificate. Then you can just use DNS cache poisoning
-or other technics to impersonate the website.</p>
-<p>I doubt PHP beginners would reject such a certificate,
-even when their tools (eg. <strong class="program">curl</strong>) give out warnings
-about the certificate being invalid.</p>
-</li>
-<li><p class="first">Secondly, and more importantly, the way the <tt class="file docutils literal"><span class="pre">composer.phar</span></tt> archive
-is fetched can still be insecure because the installation instructions
-say:</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If the above fails for some reason, you can download the installer
-with <tt class="file docutils literal"><span class="pre">php</span></tt> instead:</p>
-</div>
-<div class="highlight-console"><div class="highlight"><pre><span class="go">php -r &quot;readfile(&#39;https://getcomposer.org/installer&#39;);&quot; | php</span>
-</pre></div>
-</div>
-<p>Therefore, any PHP beginners that gets an error related to certificate
-validation would probably just run that command on their machine.</p>
-<p>Alas, PHP does not properly validate certificates by default.
-So this command effectively downloads and executes arbitrary PHP code
-off the Internet.</p>
-</li>
-</ol>
-<p>Think about it for a second, this is very similar to remote code inclusion,
-a security flaw that can do great damages to any system.
-This vulnerability is even more scary when you consider that Composer is then
-used to install dozens of other pieces of code (so-called &#8220;packages&#8221;).
-If the installer itself can be compromised, how sure can you be that the code
-it later installed is the one you intended?</p>
-<p>All is not lost though. There has been <a class="reference external" href="https://www.adayinthelifeof.nl/2012/10/15/installing-composer-russian-roulette/">rising concern</a> about this
-and <a class="reference external" href="https://github.com/composer/composer/issues/1074">other security issues</a> in Composer. I hope these issues will be fixed
-in the future. Meanwhile, it&#8217;s a risk I am (reluctantly) willing to take
-because the gain outweights it.</p>
 <hr class="docutils" />
 <p>What about you? Are there aspects of Composer you&#8217;re dissatisfied with?
 Please share your thoughts and experiences in the comments below.</p>
-<hr class="docutils" />
-<table class="docutils footnote" frame="void" id="fn-composer" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Technically, Composer is language neutral and is thus not limited
-to managing PHP packages. A lot of efforts from the Composer folks
-are actually directed towards promoting Composer to handle
-JavaScript libraries, Ruby software, Python software, etc.</td></tr>
-</tbody>
-</table>
 </div>
 </div>
 
@@ -226,14 +156,21 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
   
   <li><i class="fa-fw fa fa-folder-open"></i>
     
-      php
+      
+      <a href="category/php.html">php</a>
+      
     </li>
   
 
   
-  <li><i class="fa-fw fa fa-tag"></i>
+  <li><i class="fa-fw fa fa-tags"></i>
+      
     
-      composer
+      
+      <a href="tag/composer.html">composer</a>,
+      
+    
+      security
     </li>
   
   
@@ -250,10 +187,45 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
   <ul>
     
     
+      <li><a href="2015/04/Various thoughts on Composer - Part 1.html">Apr 09 - Various thoughts on Composer: Part 1</a></li>
+    
+      <li><a href="2015/04/09/Various thoughts on Composer - Part 1.html">Apr 09 - Various thoughts on Composer: Part 1</a></li>
+    
       <li><a href="2015/04/05/First blog entry.html">Apr 05 - First blog entry</a></li>
     
   </ul>
 
+
+  <h3><a href="tag.html">Tags</a></h3>
+  <style type="text/css">
+    ul.ablog-cloud {list-style: none; overflow: auto;}
+    ul.ablog-cloud li {float: left; height: 20pt; line-height: 18pt; margin-right: 5px;}
+    ul.ablog-cloud a {text-decoration: none; vertical-align: middle;}
+    li.ablog-cloud-1{font-size: 80%;}
+    li.ablog-cloud-2{font-size: 95%;}
+    li.ablog-cloud-3{font-size: 110%;}
+    li.ablog-cloud-4{font-size: 125%;}
+    li.ablog-cloud-5{font-size: 140%;}
+  </style>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="tag/composer.html">composer</a></li>
+      
+    
+      
+    
+  </ul>
+
+  <h3><a href="category.html">Categories</a></h3>
+  <ul>
+  
+    
+    <li><a href="category/php.html">php (2)</a></li>
+    
+  
+  </ul>
 
   <h3>
     <a href="archive.html"><i class="fa fa-archive"></i></a>
@@ -262,7 +234,7 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
   <ul>
   
     
-    <li><a href="2015.html">2015 (1)</a></li>
+    <li><a href="2015.html">2015 (3)</a></li>
     
   
   </ul>
