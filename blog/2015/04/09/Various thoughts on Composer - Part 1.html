@@ -70,7 +70,7 @@ It concerns security and how it is addressed in Composer.</p>
 <div class="section" id="security-in-composer-or-its-lack-of">
 <h2>Security in Composer (or its lack of)<a class="headerlink" href="#security-in-composer-or-its-lack-of" title="Permalink to this headline">¶</a></h2>
 <p>I work for a company that specializes in IT security among other things.
-As a result of that, I often apply the same technics I learned at work
+As a result of that, I often apply the same techniques I learned at work
 for my own usage. Also, I get frustrated whenever I hit a wall from a security
 standpoint due to some software not applying basic security principles.
 Composer is one such software because it offers very little guarantees over
@@ -98,7 +98,7 @@ bypass the warning by using whatever option the program provides
 to ignore it.</p>
 </li>
 <li><p class="first">Secondly, and more importantly, the way the <tt class="file docutils literal"><span class="pre">composer.phar</span></tt> archive
-is fetched can still be insecure because the installation instructions
+is fetched can still be unsafe because the installation instructions
 say:</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -116,12 +116,12 @@ off the Internet.</p>
 </li>
 </ol>
 <p>Think about it for a second. This is very similar to remote code inclusion,
-a security flaw that usually does great damages...</p>
+a security flaw that usually does great damage...</p>
 <p>This vulnerability gets even scarier when you consider that Composer is then
 used to install dozens of other pieces of code—so-called &#8220;packages&#8221;.
 If the installer itself can be compromised, how sure can you be that the code
-it installed is really the one you intended?</p>
-<p>All is not lost though. There has been <a class="reference external" href="https://www.adayinthelifeof.nl/2012/10/15/installing-composer-russian-roulette/">rising concern</a> about this
+it installs is really the one you intended?</p>
+<p>All is not lost, though. There has been <a class="reference external" href="https://www.adayinthelifeof.nl/2012/10/15/installing-composer-russian-roulette/">rising concern</a> about this
 and <a class="reference external" href="https://github.com/composer/composer/issues/1074">other security issues</a> in Composer. I hope these issues will be fixed
 in the future. Meanwhile, it&#8217;s a risk I am (reluctantly) willing to take
 because I still think the gain outweights it.</p>
@@ -253,7 +253,7 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
     </script>
-    <i class="fa-fw fa fa-comments"></i>
+    <i class="fa-fw fa fa-comments-o"></i>
     <a href="#disqus_thread" data-disqus-identifier="/blog/2015/04/09/Various thoughts on Composer - Part 1/"> </a>
   </li>
   
@@ -275,7 +275,10 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
   </ul>
 
 
-  <h3><a href="../../../tag.html">Tags</a></h3>
+  <h3>
+    <a href="../../../tag.html"><i class="fa fa-tags"></i></a>
+    <a href="../../../tag.html">Tags</a>
+  </h3>
   <style type="text/css">
     ul.ablog-cloud {list-style: none; overflow: auto;}
     ul.ablog-cloud li {float: left; height: 20pt; line-height: 18pt; margin-right: 5px;}
@@ -297,7 +300,10 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
     
   </ul>
 
-  <h3><a href="../../../category.html">Categories</a></h3>
+  <h3>
+    <a href="../../../category.html"><i class="fa fa-gears"></i></a>
+    <a href="../../../category.html">Categories</a>
+  </h3>
   <ul>
   
     

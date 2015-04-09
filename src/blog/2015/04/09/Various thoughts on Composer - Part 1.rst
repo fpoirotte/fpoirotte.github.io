@@ -26,7 +26,7 @@ Security in Composer (or its lack of)
 =====================================
 
 I work for a company that specializes in IT security among other things.
-As a result of that, I often apply the same technics I learned at work
+As a result of that, I often apply the same techniques I learned at work
 for my own usage. Also, I get frustrated whenever I hit a wall from a security
 standpoint due to some software not applying basic security principles.
 Composer is one such software because it offers very little guarantees over
@@ -57,7 +57,7 @@ Composer vulnerable:
     to ignore it.
 
 2.  Secondly, and more importantly, the way the :file:`composer.phar` archive
-    is fetched can still be insecure because the installation instructions
+    is fetched can still be unsafe because the installation instructions
     say:
 
     ..  note::
@@ -77,14 +77,14 @@ Composer vulnerable:
     off the Internet.
 
 Think about it for a second. This is very similar to remote code inclusion,
-a security flaw that usually does great damages...
+a security flaw that usually does great damage...
 
 This vulnerability gets even scarier when you consider that Composer is then
 used to install dozens of other pieces of code |---| so-called "packages".
 If the installer itself can be compromised, how sure can you be that the code
-it installed is really the one you intended?
+it installs is really the one you intended?
 
-All is not lost though. There has been `rising concern`_ about this
+All is not lost, though. There has been `rising concern`_ about this
 and `other security issues`_ in Composer. I hope these issues will be fixed
 in the future. Meanwhile, it's a risk I am (reluctantly) willing to take
 because I still think the gain outweights it.

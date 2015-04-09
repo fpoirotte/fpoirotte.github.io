@@ -62,7 +62,7 @@
     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
     </script>
-    {% if fa %}<i class="fa-fw fa fa-comments"></i>{% endif %}
+    {% if fa %}<i class="fa-fw fa fa-comments-o"></i>{% endif %}
     <a href="{% if pagename != post.docname%}{{ pathto(post.docname) }}{% endif %}#disqus_thread" data-disqus-identifier="/{{post.docname}}/"> {% if not fa %}comment(s){% endif %}</a>
   </li>
   {% endif %}

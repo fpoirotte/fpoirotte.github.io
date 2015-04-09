@@ -593,3 +593,7 @@ table.docutils.citation, table.docutils.citation td, table.docutils.citation th 
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+
+div.body div.section p, div.body table.footnote td {
+    text-align: justify;
+}
