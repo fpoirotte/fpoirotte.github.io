@@ -8,25 +8,6 @@
   <generator uri="http://blog.readthedocs.org" version="0.5.1">ABlog</generator>
   <entry xml:base="https://fpoirotte.github.io/blog/2015/atom.xml">
     <title type="text">Various thoughts on Composer: Part 1</title>
-    <id>https://fpoirotte.github.io/blog/2015/04/Various thoughts on Composer - Part 1.html</id>
-    <updated>2015-04-09T00:00:00Z</updated>
-    <published>2015-04-09T00:00:00Z</published>
-    <link href="https://fpoirotte.github.io/blog/2015/04/Various thoughts on Composer - Part 1.html" />
-    <author>
-      <name>François Poirotte</name>
-    </author>
-    <content type="html">&lt;p&gt;Before you read on, let me make this clear: I love Composer, I really do!
-It has brought a lot of improvements to the PHP ecosystem by providing
-a common package manager that all developers can use &lt;a class=&quot;footnote-reference&quot; href=&quot;#fn-composer&quot; id=&quot;id2&quot;&gt;[1]&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;However, I sometimes feel it doesn&amp;#8217;t quite deliver some
-of its early promises or that it still lacks some important features.&lt;/p&gt;
-&lt;p&gt;This is the first post of a series of articles about what I find
-to be defective in Composer itself or in the way it is usually employed.
-It concerns security and how it is addressed in Composer.&lt;/p&gt;
-</content>
-  </entry>
-  <entry xml:base="https://fpoirotte.github.io/blog/2015/atom.xml">
-    <title type="text">Various thoughts on Composer: Part 1</title>
     <id>https://fpoirotte.github.io/blog/2015/04/09/Various thoughts on Composer - Part 1.html</id>
     <updated>2015-04-09T00:00:00Z</updated>
     <published>2015-04-09T00:00:00Z</published>
