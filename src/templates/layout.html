@@ -1,4 +1,80 @@
 {%- extends "basic/layout.html" %}
+
+{%- macro my_relbar() %}
+    <div class="related">
+      <ul>
+        <li>
+          <span>
+            <img alt="" title="Clicky"
+              src="//www.gravatar.com/avatar/abdd173a06c7738401c954f535814b8e?d=mm&s=28"/>
+            <a {{ accesskey("H") }} href="{{ pathto(master_doc) }}">{{ shorttitle|e }}</a>
+          </span>
+        </li>
+
+        <li>
+          <span>
+            <a style="padding: 0px; margin-left: 20px"
+              href="{{ ablog.page_url('/blog/atom.xml') }}"><i class="fa fa-rss-square"></i></a>
+            <a {{ accesskey("R") }} style="padding-left: 0px"
+              href="{{ pathto(ablog.blog_path) }}">{{ gettext('Recent Posts') }}</a>
+          </span>
+          <ul>
+          {%- for recent in ablog.recent(10) %}
+            <li><span><a href="{{ pathto(recent.docname) }}{{ anchor(recent) }}">{{ recent.date.strftime(gettext(ablog.post_date_format_short)) + " - " + recent.title }}</a></span></li>
+          {%- endfor %}
+          </ul>
+        </li>
+{% if ablog.category %}
+        <li>
+          <span>
+            <a {{ accesskey("C") }} href="{{ pathto(ablog.category.path) }}">
+              <i class="fa fa-folder-open"></i>
+              {{ gettext('Categories') }}
+            </a>
+          </span>
+          <ul>
+          {%- for coll in ablog.category %}
+            {%- if coll %}
+            <li><span><a href="{{ pathto(coll.docname) }}">{{ coll }} ({{ coll|length }})</a></span></li>
+            {%- endif %}
+          {%- endfor %}
+          </ul>
+        </li>
+{% endif %}
+{% if ablog.archive %}
+        <li>
+          <span>
+            <a {{ accesskey("A") }} href="{{ pathto(ablog.archive.docname) }}">
+              <i class="fa fa-archive"></i>
+              {{ gettext('Archives') }}
+            </a>
+          </span>
+          <ul>
+          {%- for coll in ablog.archive %}
+            {%- if coll %}
+            <li><span><a href="{{ pathto(coll.docname) }}">{{ coll }} ({{ coll|length }})</a></span></li>
+            {%- endif %}
+          {%- endfor %}
+          </ul>
+        </li>
+{% endif %}
+        <li style="float: right">
+          <span>
+          <a href="{{ pathto('search') }}" style="padding: 5px 5px 5px 10px"><i class="fa fa-search"></i></a>
+          <form class="search" action="{{ pathto('search') }}" method="get">
+            <input type="text" name="q" {{ accesskey("/") }} style="width: 100px" />
+            <input type="submit" value="{{ _('Search') }}" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+          </span>
+        </li>
+      </ul>
+    </div>
+{%- endmacro %}
+
+{%- block relbar1 %}{{ my_relbar() }}{% endblock %}
+
 {%- block htmltitle %}
     {{ super() }}
     <link rel="canonical" href="{{ ablog.page_url('/') }}" />
@@ -9,11 +85,23 @@
     <link rel="apple-touch-icon" href="{{ pathto('_static/' ~ theme_touch_icon, 1) }}" />
   {% endif %}
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  {% if atom_feed %}
+  <link rel="alternate" type="application/atom+xml"  href="{{ pathto(feed_path, 1) }}/atom.xml" title="{{ ablog.blog_title }}">
+  {% endif %}
+  {% if ablog.fontawesome_link_cdn%}
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  {% elif ablog.fontawesome_css_file %}
+  <link rel="stylesheet" href="{{ pathto('_static/' + ablog.fontawesome_css_file, 1) }}" type="text/css" />
+  {% endif %}
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+  </style>
 {% endblock %}
 {%- block relbar2 %}{% endblock %}
 {%- block footer %}
     <div class="footer">
-      &copy;{{ copyright }}.
+      &copy;{{ copyright }}
       {%- if show_source and has_source and sourcename %}
       |
       <a href="{{ pathto('_sources/' + sourcename, true)|e }}"

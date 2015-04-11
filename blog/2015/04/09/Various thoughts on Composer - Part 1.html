@@ -27,11 +27,9 @@
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
     <link rel="top" title="François &#34;Clicky&#34; Poirotte&#39;s Blog" href="../../../../index.html" />
-  
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
-
   
   
   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
@@ -44,9 +42,64 @@
   </head>
   <body>
     <div class="related">
-      <h3>Navigation</h3>
       <ul>
-        <li><a href="../../../../index.html">Clicky&#39;s Blog</a> &raquo;</li> 
+        <li>
+          <span>
+            <img alt="" title="Clicky"
+              src="//www.gravatar.com/avatar/abdd173a06c7738401c954f535814b8e?d=mm&s=28"/>
+            <a accesskey="H" href="../../../../index.html">Clicky&#39;s Blog</a>
+          </span>
+        </li>
+
+        <li>
+          <span>
+            <a style="padding: 0px; margin-left: 20px"
+              href="https://fpoirotte.github.io/blog/atom.xml"><i class="fa fa-rss-square"></i></a>
+            <a accesskey="R" style="padding-left: 0px"
+              href="../../../../blog.html">Recent Posts</a>
+          </span>
+          <ul>
+            <li><span><a href="#">Apr 09 - Various thoughts on Composer: Part 1</a></span></li>
+            <li><span><a href="../05/First blog entry.html">Apr 05 - First blog entry</a></span></li>
+          </ul>
+        </li>
+
+        <li>
+          <span>
+            <a accesskey="C" href="../../../category.html">
+              <i class="fa fa-folder-open"></i>
+              Categories
+            </a>
+          </span>
+          <ul>
+            <li><span><a href="../../../category/php.html">php (1)</a></span></li>
+          </ul>
+        </li>
+
+
+        <li>
+          <span>
+            <a accesskey="A" href="../../../archive.html">
+              <i class="fa fa-archive"></i>
+              Archives
+            </a>
+          </span>
+          <ul>
+            <li><span><a href="../../../2015.html">2015 (2)</a></span></li>
+          </ul>
+        </li>
+
+        <li style="float: right">
+          <span>
+          <a href="../../../../search.html" style="padding: 5px 5px 5px 10px"><i class="fa fa-search"></i></a>
+          <form class="search" action="../../../../search.html" method="get">
+            <input type="text" name="q" accesskey="/" style="width: 100px" />
+            <input type="submit" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+          </span>
+        </li>
       </ul>
     </div>  
 
@@ -102,11 +155,11 @@ is fetched can still be unsafe because the installation instructions
 say:</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If the above fails for some reason, you can download the installer
+<p>If the above fails for some reason, you can download the installer
 with <tt class="file docutils literal"><span class="pre">php</span></tt> instead:</p>
-</div>
-<div class="highlight-console"><div class="highlight"><pre><span class="go">php -r &quot;readfile(&#39;https://getcomposer.org/installer&#39;);&quot; | php</span>
+<div class="last highlight-bash"><div class="highlight"><pre>php -r <span class="s2">&quot;readfile(&#39;https://getcomposer.org/installer&#39;);&quot;</span> <span class="p">|</span> php
 </pre></div>
+</div>
 </div>
 <p>Therefore, any PHP beginner that gets an error related to certificate
 validation would probably just run that command on their machine.</p>
@@ -146,8 +199,8 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
     
 
 
-<div class="section">
-  <span style="float: left;">
+<div class="section" style="position: relative">
+  <span style="position: absolute; left: 0px; width: 250px; text-align: left">
   
   
   <a href="../05/First blog entry.html">
@@ -156,8 +209,10 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
   </a>
   
   </span>
-  <span>&nbsp;</span>
-  <span style="float: right;">
+  <span class="postnavy-top">
+  <a href="#"><i class="fa fa-arrow-circle-up"></i>Top</a>
+  </span>
+  <span style="position: absolute; width: 250px; right: 0px; text-align: right">
   
 </div>
 
@@ -167,12 +222,11 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
     <h2>Comments</h2>
     <div id="disqus_thread"></div>
     <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'fpoirotte'; // required: replace example with your forum shortname
+        var disqus_shortname = 'fpoirotte';
         var disqus_identifier = '/blog/2015/04/09/Various thoughts on Composer - Part 1/';
         var disqus_title = 'Various thoughts on Composer: Part 1';
         var disqus_url = 'https://fpoirotte.github.io/blog/2015/04/09/Various thoughts on Composer - Part 1';
-        /* * * DON'T EDIT BELOW THIS LINE * * */
+
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
@@ -260,24 +314,10 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
   </ul>
 
 
-<h3>
-    <a href="../../../.././index.html"><i class="fa fa-home"></i></a>
-    <a href="../../../.././index.html">Homepage</a>
-</h3>
-  <h3>
-  <a href="https://fpoirotte.github.io/blog/atom.xml"><i class="fa fa-rss-square"></i></a>
-  <a href="../../../../blog.html">Recent Posts</a></h3>
-  <ul>
-    
-    
-      <li><a href="../05/First blog entry.html">Apr 05 - First blog entry</a></li>
-    
-  </ul>
-
 
   <h3>
     <a href="../../../tag.html"><i class="fa fa-tags"></i></a>
-    <a href="../../../tag.html">Tags</a>
+    <a accesskey="T" href="../../../tag.html">Tags</a>
   </h3>
   <style type="text/css">
     ul.ablog-cloud {list-style: none; overflow: auto;}
@@ -301,51 +341,22 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
   </ul>
 
   <h3>
-    <a href="../../../category.html"><i class="fa fa-gears"></i></a>
-    <a href="../../../category.html">Categories</a>
-  </h3>
+  <a href="https://fpoirotte.github.io/blog/atom.xml"><i class="fa fa-rss-square"></i></a>
+  <a href="../../../../blog.html">Recent Posts</a></h3>
   <ul>
-  
     
-    <li><a href="../../../category/php.html">php (1)</a></li>
     
-  
+      <li><a href="../05/First blog entry.html">Apr 05 - First blog entry</a></li>
+    
   </ul>
 
-  <h3>
-    <a href="../../../archive.html"><i class="fa fa-archive"></i></a>
-    <a href="../../../archive.html">Archives</a>
-  </h3>
-  <ul>
-  
-    
-    <li><a href="../../../2015.html">2015 (2)</a></li>
-    
-  
-  </ul>
 
-<div id="searchbox" style="display: none">
-  <h3>
-    <a href="../../../../search.html"><i class="fa fa-search"></i></a>
-    Quick search
-  </h3>
-    <form class="search" action="../../../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms and click "Go".
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2015, F. Poirotte.
+      &copy;2015, F. Poirotte
     </div>
 
     

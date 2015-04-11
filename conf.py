@@ -7,7 +7,7 @@ import alabaster
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#sys.path = glob.glob(os.path.abspath('extensions/*/')) + sys.path
+sys.path.insert(0, os.path.abspath(os.path.join('src', 'extensions')))
 
 # -- General ABlog Options ----------------------------------------------------
 
@@ -88,12 +88,15 @@ post_date_format = '%b %d, %Y'
 # In addition, there are authors.html, languages.html, and locations.html
 # sidebars that link to author and location archive pages.
 html_sidebars = {
-    '**': [ 'postcard.html', 'homepage.html',
-            'recentposts.html', 'tagcloud.html',
-            'categories.html',  'archives.html',
-            'searchbox.html',
-            ],
-    }
+    '**': [
+        'postcard.html',
+#        'homepage.html',
+        'tagcloud.html',
+        'recentposts.html',
+#        'categories.html',
+#        'archives.html',
+    ],
+}
 
 
 # -- Blog Feed Options --------------------------------------------------------
@@ -163,7 +166,8 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.extlinks',
     'alabaster',
-    'ablog'
+    'ablog',
+    'inlinephp',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

@@ -65,9 +65,9 @@ Composer vulnerable:
         If the above fails for some reason, you can download the installer
         with :file:`php` instead:
 
-    ..  sourcecode:: console
+        ..  sourcecode:: bash
 
-        php -r "readfile('https://getcomposer.org/installer');" | php
+            php -r "readfile('https://getcomposer.org/installer');" | php
 
     Therefore, any PHP beginner that gets an error related to certificate
     validation would probably just run that command on their machine.

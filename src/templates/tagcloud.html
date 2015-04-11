@@ -1,7 +1,7 @@
 {% if ablog.tags %}
   <h3>
     <a href="{{ pathto(ablog.tags.path) }}"><i class="fa fa-tags"></i></a>
-    <a href="{{ pathto(ablog.tags.path) }}">{{ gettext('Tags') }}</a>
+    <a {{ accesskey("T") }} href="{{ pathto(ablog.tags.path) }}">{{ gettext('Tags') }}</a>
   </h3>
   <style type="text/css">
     ul.ablog-cloud {list-style: none; overflow: auto;}

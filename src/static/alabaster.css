@@ -1,38 +1,18 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @import url("basic.css");
 
 /* -- page layout ----------------------------------------------------------- */
 
 body {
-    font-family: 'goudy old style', 'minion pro', 'bell mt', Georgia, 'Hiragino Mincho Pro', serif;
+    font-family: serif;
     font-size: 17px;
     background-color: white;
     color: #000;
     margin: 0;
-    padding: 0;
+    padding-top: 40px;
 }
 
 div.document {
-    width: 940px;
+    width: 1000px;
     margin: 30px auto 0 auto;
 }
 
@@ -60,7 +40,7 @@ div.body {
 }
 
 div.footer {
-    width: 940px;
+    width: 1000px;
     margin: 20px auto 30px auto;
     font-size: 14px;
     color: #888;
@@ -69,10 +49,6 @@ div.footer {
 
 div.footer a {
     color: #888;
-}
-
-div.related {
-    display: none;
 }
 
 div.sphinxsidebar a {
@@ -147,7 +123,7 @@ div.sphinxsidebar p {
 }
 
 div.sphinxsidebar ul {
-    margin: 10px 0 0 32px;
+    margin: 0 0 10px 32px;
     padding: 0;
     color: #000;
 }
@@ -166,7 +142,7 @@ div.sphinxsidebar ul li.toctree-l2 > a {
 
 div.sphinxsidebar input {
     border: 1px solid #CCC;
-    font-family: 'goudy old style', 'minion pro', 'bell mt', Georgia, 'Hiragino Mincho Pro', serif;
+    font-family: serif;
     font-size: 1em;
 }
 
@@ -229,7 +205,7 @@ div.body p, div.body dd, div.body li {
 
 div.admonition {
     margin: 20px 0px;
-    padding: 10px 30px;
+    padding: 10px 15px;
     background-color: #FCC;
     border: 1px solid #FAA;
 }
@@ -378,14 +354,9 @@ ul, ol {
 
 pre {
     background: #EEE;
-    padding: 7px 30px;
+    padding: 7px 10px;
     margin: 15px 0px;
     line-height: 1.3em;
-}
-
-dl pre, blockquote pre, li pre {
-    margin-left: -60px;
-    padding-left: 60px;
 }
 
 dl dl pre {
@@ -415,8 +386,9 @@ a.reference:hover {
 
 a.footnote-reference {
     text-decoration: none;
-    font-size: 0.7em;
-    vertical-align: top;
+    font-size: 0.65em;
+    position: relative;
+    top: -0.5em;
     border-bottom: 1px dotted #004B6B;
 }
 
@@ -524,18 +496,6 @@ a:hover tt, a:hover code {
         margin: 0;
     }
 
-    div.related {
-        display: block;
-        margin: 0;
-        padding: 10px 0 20px 0;
-    }
-
-    div.related ul,
-    div.related ul li {
-        margin: 0;
-        padding: 0;
-    }
-
     div.footer {
         display: none;
     }
@@ -594,6 +554,109 @@ table.docutils.citation, table.docutils.citation td, table.docutils.citation th 
   box-shadow: none;
 }
 
+
+/***************************
+ * Clicky - Custom changes *
+ **************************/
+
+/* Justify post body & footnotes section */
 div.body div.section p, div.body table.footnote td {
-    text-align: justify;
+  text-align: justify;
 }
+
+/* Sidebar */
+div.sphinxsidebar a:hover {
+  border-bottom: 1px solid #999;
+  color: #99f;
+}
+
+div.sphinxsidebar h3 a:hover {
+  border-bottom: 1px solid #999;
+}
+
+/* Bottom navigation bar */
+.postnavy-top {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  clear: none;
+}
+
+/* Search box */
+.search {
+    display: inline;
+}
+
+/* Menubar */
+div.related {
+    position: fixed;
+    top: 0px;
+    background: #336;
+/*    font-weight: bold;*/
+}
+
+div.related ul ul {
+    display: none;
+    background: #4b545f;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+}
+
+div.related ul li:hover > ul {
+    display: inherit;
+}
+
+div.related ul {
+    padding: 0;
+    list-style: none;
+    position: relative;
+/*    display: inline-table;*/
+/*    height: 40px;*/
+}
+
+div.related ul:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+div.related ul li {
+    float: left;
+}
+
+div.related ul li:hover {
+    background: #669;
+}
+
+div.related ul li:hover a {
+    color: #fff;
+}
+
+div.related ul li span {
+    display: block;
+    padding: 0px;
+    text-align: left;
+    line-height: 36px;
+}
+
+div.related ul li span > a {
+    color: #ccc;
+    padding: 5px 20px;
+    text-decoration: none;
+}
+
+div.related ul ul li {
+    float: none;
+    position: relative;
+}
+
+div.related ul ul li span {
+    padding: 5px 20px;
+    color: #fff;
+}
+
+div.related ul ul li span:hover {
+    background: #5f6975;
+}
+
