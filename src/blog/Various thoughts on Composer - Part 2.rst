@@ -14,10 +14,11 @@ Various thoughts on Composer: Part 2
 This is the second and final post of a series of articles about what I find
 to be defective in Composer itself or in the way it is usually employed.
 
-:ref:`Last time <Various thoughts on Composer: Part 1>`,
+So, :ref:`last time <Various thoughts on Composer: Part 1>`,
 I wrote about my concerns on the way security is handled by Composer.
 This time, I'll be writing about the use of virtual packages
 by the PHP community.
+
 
 Virtual packages and Composer
 =============================
@@ -29,28 +30,33 @@ flexibility.
 
 Virtual packages have always been available in Composer.
 In fact, they were one of the first few features from Composer and Packagist
-to be `highlighted on nelm.io`_.
-Still, this feature is very underused in my opinion.
+to be `highlighted on nelm.io`_. Still, this feature is very underused
+in my opinion.
 
 Take logging for example. Almost every piece of code I've come across recently
 makes use of some logging library at one point or another to provide feedback
 about what it's doing. This is A Good Thing (and definitely something
 most PHP applications didn't do just over a decade ago).
 
-Now, there are literally `tens of logging libraries for PHP`_ out there,
+Now, there are literally tens of logging libraries for PHP out there,
 like my very own `Plop`_. To help interoperability, the |PHP-FIG|_ created the 
 |PSR-3|, a logging interface that logging libraries must implement.
 Once the interface has been implemented, the package for the logging library
-should declare that it ``provides`` the ``psr/log-implementation``
+should declare that it ``provides`` the :packagist:`psr/log-implementation`
 virtual package.
-Applications that want to use the interoperable interface only need to add
+
+Applications that want to use the interoperable interface thus only need to add
 a ``require`` dependency on ``psr/log``.
 They can then use the ``Psr\\Log\\LoggerInterface`` interface as a typehint
 wherever a logger is needed.
 
 The problem is that you must **already** have a virtual package for all of this
-to work properly. That also means that you have come to an agreement with other
-parties as to what is considered interoperable.
+to work properly. That also means that you come to an agreement with other
+parties beforehand as to what is considered interoperable.
+
+
+More info about virtual packages
+================================
 
 If you are interested in using virtual packages, check out the following
 articles:
@@ -65,8 +71,6 @@ articles:
 
 ..  _`highlighted on nelm.io`:
     http://nelm.io/blog/2011/12/composer-part-2-impact/
-..  _`tens of logging libraries for PHP`:
-    https://packagist.org/providers/psr/log-implementation
 ..  _`Plop`:
     https://plop.readthedocs.org/en/latest/
 ..  |PHP-FIG| replace:: :abbr:`PHP-FIG (PHP Framework Interop Group)`

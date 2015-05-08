@@ -60,6 +60,7 @@
               href="../blog.html">Recent Posts</a>
           </span>
           <ul>
+            <li><span><a href="2015/05/09/PHPFarm Heroes Series - A bit of history.html">May 09 - PHPFarm Heroes Series: A bit of history</a></span></li>
             <li><span><a href="2015/04/09/Various thoughts on Composer - Part 1.html">Apr 09 - Various thoughts on Composer: Part 1</a></span></li>
             <li><span><a href="2015/04/05/First blog entry.html">Apr 05 - First blog entry</a></span></li>
           </ul>
@@ -73,7 +74,8 @@
             </a>
           </span>
           <ul>
-            <li><span><a href="category/php.html">php (1)</a></span></li>
+            <li><span><a href="category/php.html">php (2)</a></span></li>
+            <li><span><a href="category/phpfarm.html">phpfarm (1)</a></span></li>
           </ul>
         </li>
 
@@ -86,7 +88,7 @@
             </a>
           </span>
           <ul>
-            <li><span><a href="2015.html">2015 (2)</a></span></li>
+            <li><span><a href="2015.html">2015 (3)</a></span></li>
           </ul>
         </li>
 
@@ -115,7 +117,7 @@
 <span id="id1"></span><h1>Various thoughts on Composer: Part 2<a class="headerlink" href="#various-thoughts-on-composer-part-2" title="Permalink to this headline">¶</a></h1>
 <p>This is the second and final post of a series of articles about what I find
 to be defective in Composer itself or in the way it is usually employed.</p>
-<p><a class="reference internal" href="2015/04/09/Various thoughts on Composer - Part 1.html#various-thoughts-on-composer-part-1"><em>Last time</em></a>,
+<p>So, <a class="reference internal" href="2015/04/09/Various thoughts on Composer - Part 1.html#various-thoughts-on-composer-part-1"><em>last time</em></a>,
 I wrote about my concerns on the way security is handled by Composer.
 This time, I&#8217;ll be writing about the use of virtual packages
 by the PHP community.</p>
@@ -127,25 +129,28 @@ while keeping a certain level of abstraction, which in turn provides
 flexibility.</p>
 <p>Virtual packages have always been available in Composer.
 In fact, they were one of the first few features from Composer and Packagist
-to be <a class="reference external" href="http://nelm.io/blog/2011/12/composer-part-2-impact/">highlighted on nelm.io</a>.
-Still, this feature is very underused in my opinion.</p>
+to be <a class="reference external" href="http://nelm.io/blog/2011/12/composer-part-2-impact/">highlighted on nelm.io</a>. Still, this feature is very underused
+in my opinion.</p>
 <p>Take logging for example. Almost every piece of code I&#8217;ve come across recently
 makes use of some logging library at one point or another to provide feedback
 about what it&#8217;s doing. This is A Good Thing (and definitely something
 most PHP applications didn&#8217;t do just over a decade ago).</p>
-<p>Now, there are literally <a class="reference external" href="https://packagist.org/providers/psr/log-implementation">tens of logging libraries for PHP</a> out there,
+<p>Now, there are literally tens of logging libraries for PHP out there,
 like my very own <a class="reference external" href="https://plop.readthedocs.org/en/latest/">Plop</a>. To help interoperability, the <a class="reference external" href="http://www.php-fig.org/"><abbr title="PHP Framework Interop Group">PHP-FIG</abbr></a> created the
 <abbr title="PHP Standards Recommendation #3">PSR-3</abbr>, a logging interface that logging libraries must implement.
 Once the interface has been implemented, the package for the logging library
-should declare that it <tt class="docutils literal"><span class="pre">provides</span></tt> the <tt class="docutils literal"><span class="pre">psr/log-implementation</span></tt>
-virtual package.
-Applications that want to use the interoperable interface only need to add
+should declare that it <tt class="docutils literal"><span class="pre">provides</span></tt> the <a class="reference external" href="https://packagist.org/packages/psr/log-implementation">psr/log-implementation</a>
+virtual package.</p>
+<p>Applications that want to use the interoperable interface thus only need to add
 a <tt class="docutils literal"><span class="pre">require</span></tt> dependency on <tt class="docutils literal"><span class="pre">psr/log</span></tt>.
 They can then use the <tt class="docutils literal"><span class="pre">Psr\\Log\\LoggerInterface</span></tt> interface as a typehint
 wherever a logger is needed.</p>
 <p>The problem is that you must <strong>already</strong> have a virtual package for all of this
-to work properly. That also means that you have come to an agreement with other
-parties as to what is considered interoperable.</p>
+to work properly. That also means that you come to an agreement with other
+parties beforehand as to what is considered interoperable.</p>
+</div>
+<div class="section" id="more-info-about-virtual-packages">
+<h2>More info about virtual packages<a class="headerlink" href="#more-info-about-virtual-packages" title="Permalink to this headline">¶</a></h2>
 <p>If you are interested in using virtual packages, check out the following
 articles:</p>
 <ul class="simple">
@@ -254,6 +259,11 @@ Please share your thoughts and experiences in the comments below.</p>
       
     
       
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="tag/phpfarm.html">phpfarm</a></li>
+      
+    
+      
     
   </ul>
 
@@ -262,6 +272,8 @@ Please share your thoughts and experiences in the comments below.</p>
   <a href="../blog.html">Recent Posts</a></h3>
   <ul>
     
+    
+      <li><a href="2015/05/09/PHPFarm Heroes Series - A bit of history.html">May 09 - PHPFarm Heroes Series: A bit of history</a></li>
     
       <li><a href="2015/04/09/Various thoughts on Composer - Part 1.html">Apr 09 - Various thoughts on Composer: Part 1</a></li>
     

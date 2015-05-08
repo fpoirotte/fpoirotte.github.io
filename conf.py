@@ -360,5 +360,6 @@ extlinks = {
     'pear': ('http://pear.php.net/%s', 'pear.php.net/'),
     'pecl': ('http://pecl.php.net/%s', 'pecl.php.net/'),
     'psr': ('http://www.php-fig.org/psr/psr-%s/', 'PSR-'),
+    'packagist': ('https://packagist.org/packages/%s', ''),
 }
 

@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     
-    <title>Various thoughts on Composer: Part 1 &mdash; François &#34;Clicky&#34; Poirotte&#39;s Blog</title>
+    <title>PHPFarm Heroes Series: A bit of history &mdash; François &#34;Clicky&#34; Poirotte&#39;s Blog</title>
     <link rel="canonical" href="https://fpoirotte.github.io/" />
 
     
@@ -60,9 +60,9 @@
               href="../../../../blog.html">Recent Posts</a>
           </span>
           <ul>
-            <li><span><a href="../../05/09/PHPFarm Heroes Series - A bit of history.html">May 09 - PHPFarm Heroes Series: A bit of history</a></span></li>
-            <li><span><a href="#">Apr 09 - Various thoughts on Composer: Part 1</a></span></li>
-            <li><span><a href="../05/First blog entry.html">Apr 05 - First blog entry</a></span></li>
+            <li><span><a href="#">May 09 - PHPFarm Heroes Series: A bit of history</a></span></li>
+            <li><span><a href="../../04/09/Various thoughts on Composer - Part 1.html">Apr 09 - Various thoughts on Composer: Part 1</a></span></li>
+            <li><span><a href="../../04/05/First blog entry.html">Apr 05 - First blog entry</a></span></li>
           </ul>
         </li>
 
@@ -113,85 +113,107 @@
             
   <blockquote>
 <div></div></blockquote>
-<div class="section" id="various-thoughts-on-composer-part-1">
-<span id="id1"></span><h1>Various thoughts on Composer: Part 1<a class="headerlink" href="#various-thoughts-on-composer-part-1" title="Permalink to this headline">¶</a></h1>
-<p>Before you read on, let me make this clear: I love Composer, I really do!
-It has brought a lot of improvements to the PHP ecosystem by providing
-a common package manager that all developers can use <a class="footnote-reference" href="#fn-composer" id="id2">[1]</a>.</p>
-<p>However, I sometimes feel it doesn&#8217;t quite deliver some
-of its early promises or that it still lacks some important features.</p>
-<p>This is the first post of a series of articles about what I find
-to be defective in Composer itself or in the way it is usually employed.
-It concerns security and how it is addressed in Composer.</p>
-<div class="section" id="security-in-composer-or-its-lack-of">
-<h2>Security in Composer (or its lack of)<a class="headerlink" href="#security-in-composer-or-its-lack-of" title="Permalink to this headline">¶</a></h2>
-<p>I work for a company that specializes in IT security among other things.
-As a result of that, I often apply the same techniques I learned at work
-for my own usage. Also, I get frustrated whenever I hit a wall from a security
-standpoint due to some software not applying basic security principles.
-Composer is one such software because it offers very little guarantees over
-what it installs.</p>
-<p>That last sentence may seem very counter-intuitive since Composer is a package
-manager, so of course you&#8217;d expect it to install whatever it was told to
-install. But the thing is, Composer itself can easily be compromised.</p>
-<p>Heck, the installation instructions basically amount to:</p>
+<div class="section" id="phpfarm-heroes-series-a-bit-of-history">
+<h1>PHPFarm Heroes Series: A bit of history<a class="headerlink" href="#phpfarm-heroes-series-a-bit-of-history" title="Permalink to this headline">¶</a></h1>
+<p>Alright! In this new series of articles, we&#8217;re not going to collect vegetables.
+Instead, I&#8217;ll be focusing on phpfarm, a tool that allows several versions
+of PHP to co-exist.</p>
+<p>In this first article, I&#8217;ll reminisce about the early days of PHP 5
+and the reason projects like phpfarm were born in the first place.</p>
+<p>Aside from that, I know the series on Composer isn&#8217;t finished yet.
+I have another entry in preparation but I can&#8217;t quite find the words
+to express my ideas on that topic right now.
+So, expect some interleaving between the two series in coming entries.</p>
+<div class="section" id="a-bit-of-history">
+<h2>A bit of history<a class="headerlink" href="#a-bit-of-history" title="Permalink to this headline">¶</a></h2>
+<p>Back in the days when PHP 4 was still the most widely deployed version of PHP
+and PHP 5 was slowly starting to emerge, lots of developers were faced with
+a single problem: what version should they support?</p>
+<p>Sure enough, PHP 5 was <em>mainly</em> backwards compatible, so most scripts worked
+pretty much identically when running on the two versions.
+However, some corner cases were not handled exactly the same and so the need
+arose for a way to run PHP 4 and PHP 5 side-by-side to test them both.</p>
+<p>The solution at the time was... well, hard. Most PHP developers are beginners
+and do not know much about setting up a webserver with PHP running on it.
+Hence the success of PHP stacks like WAMP, LAMP and so on.</p>
+<p>To give a more thorough answer to our question, we need to introduce SAPIs.</p>
+</div>
+<div class="section" id="enter-server-apis">
+<h2>Enter Server APIs<a class="headerlink" href="#enter-server-apis" title="Permalink to this headline">¶</a></h2>
+<p>As you may know, PHP can be integrated with a webserver in several ways.
+Take Apache 2.x for example, there are many different ways to run PHP there:</p>
 <ul class="simple">
-<li>Download remote PHP code from the Internet</li>
-<li>Execute said code on your computer</li>
+<li>As an Apache module (using <tt class="file docutils literal"><span class="pre">libphp5.so</span></tt>)</li>
+<li>As a (Fast)CGI server:<ul>
+<li>Either using the <tt class="file docutils literal"><span class="pre">php-cgi</span></tt> binary directly</li>
+<li>Or through a FastCGI Process Manager like <tt class="file docutils literal"><span class="pre">php-fpm</span></tt></li>
 </ul>
-<p>Okay, I hear you screaming &#8220;but the code is downloaded over HTTPS,
-so this is all secure!&#8221; There are two problems however that still make
-Composer vulnerable:</p>
-<ol class="arabic">
-<li><p class="first">First, it&#8217;s quite easy to obtain a <strong>valid</strong> certificate for
-<a class="reference external" href="https://getcomposer.org/">https://getcomposer.org/</a>. Then you can just use DNS cache poisoning
-or other technics to impersonate the website.</p>
-<p>Also, you could just create your own self-signed certificate.
-I doubt PHP beginners would reject such a certificate,
-even when their tools (eg. <strong class="program">curl</strong>) give out warnings
-about the certificate being invalid. They would probably just
-bypass the warning by using whatever option the program provides
-to ignore it.</p>
 </li>
-<li><p class="first">Secondly, and more importantly, the way the <tt class="file docutils literal"><span class="pre">composer.phar</span></tt> archive
-is fetched can still be unsafe because the installation instructions
-say:</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>If the above fails for some reason, you can download the installer
-with <tt class="file docutils literal"><span class="pre">php</span></tt> instead:</p>
-<div class="last highlight-bash"><div class="highlight"><pre>php -r <span class="s2">&quot;readfile(&#39;https://getcomposer.org/installer&#39;);&quot;</span> <span class="p">|</span> php
+<li>Starting with PHP 5.4, you may even run PHP&#8217;s internal webserver
+and have Apache serve as a reverse proxy for it (though this is
+highly deprecated for any production site).</li>
+</ul>
+<p>Each of these methods relies on a different <abbr title="Server API">SAPI</abbr>
+to handle PHP scripts. A SAPI is what allows the webserver (eg. Apache)
+to trigger the execution of the PHP engine and to communicate with it.
+It can be either specific to a particular webserver (like the Apache module,
+which relies on the Apache2 SAPI), or it can be generic and use an
+interoperable protocol (like the FastCGI and internal webserver approaches).</p>
+<p>Only the first two methods (Apache module and <tt class="file docutils literal"><span class="pre">php-cgi</span></tt> binary)
+were available when PHP 5.0.0 was first realeased.</p>
+</div>
+<div class="section" id="back-to-square-one">
+<h2>Back to square one<a class="headerlink" href="#back-to-square-one" title="Permalink to this headline">¶</a></h2>
+<p>What if you wanted to run several versions of PHP simultaneously?
+Well, most people will say you can either:</p>
+<ul class="simple">
+<li>Run one version as an Apache module (eg. PHP 4) and the other one (PHP 5)
+as a FastCGI server. Yep, that works.</li>
+<li>Or, run both as separate FastCGI servers (for consistency).
+Yep, that works too!</li>
+</ul>
+<p>What most people don&#8217;t know however is that you could also load both versions
+as Apache modules <a class="footnote-reference" href="#fn-apache2" id="id1">[1]</a>. Eg.</p>
+<div class="highlight-Apache"><div class="highlight"><pre><span class="nb">LoadModule</span> php_module        libphp.so
+<span class="nb">LoadModule</span> php5_module       libphp5.so
 </pre></div>
 </div>
+<p>So, basically, all you need is to either use different SAPIs for each version,
+or create different instances of the same SAPI (one instance per version).</p>
+<p>In any case, you must build each PHP version for its target SAPI.
+So the only problem left now is, how do you do that?</p>
 </div>
-<p>Therefore, any PHP beginner that gets an error related to certificate
-validation would probably just run that command on their machine.</p>
-<p>Alas, PHP does not properly validate certificates by default.
-So this command effectively downloads and executes arbitrary PHP code
-off the Internet.</p>
-</li>
-</ol>
-<p>Think about it for a second. This is very similar to remote code inclusion,
-a security flaw that usually does great damage...</p>
-<p>This vulnerability gets even scarier when you consider that Composer is then
-used to install dozens of other pieces of code—so-called &#8220;packages&#8221;.
-If the installer itself can be compromised, how sure can you be that the code
-it installs is really the one you intended?</p>
-<p>All is not lost, though. There has been <a class="reference external" href="https://www.adayinthelifeof.nl/2012/10/15/installing-composer-russian-roulette/">rising concern</a> about this
-and <a class="reference external" href="https://github.com/composer/composer/issues/1074">other security issues</a> in Composer. I hope these issues will be fixed
-in the future. Meanwhile, it&#8217;s a risk I am (reluctantly) willing to take
-because I still think the gain outweights it.</p>
+<div class="section" id="building-php-and-phpfarm-s-significance">
+<h2>Building PHP and phpfarm&#8217;s significance<a class="headerlink" href="#building-php-and-phpfarm-s-significance" title="Permalink to this headline">¶</a></h2>
+<p>Since most (if not all) Linux distributions can only be used to install
+a single version of PHP, getting several versions together usually means
+that you have to build them from sources <a class="footnote-reference" href="#fn-distro" id="id2">[2]</a>.</p>
+<p>This can be tedious, especially if you upgrade your PHP versions frequently
+(due to security fixes, to test against new alpha/beta/RC versions, etc.).
+You need a repeatable process that can also keep your compilation options
+and configuration between upgrades.</p>
+<p>phpfarm automates that process and provides easy ways to customize
+your installation. In the next entries, I&#8217;ll explain how to use phpfarm
+for basic usage and how to accomplish certain advanced tasks with it.</p>
 <hr class="docutils" />
-<p>What about you? Are you concerned about Composer&#8217;s security?
-Please share your thoughts and experiences in the comments below.</p>
+<p>What about you? Have you ever used phpfarm to install multiple side-by-side
+versions of PHP? Did you use some other tool? Are there topics related to
+phpfarm that you&#8217;d like me to explore?</p>
+<p>Please share your thoughts and experiences in the comments below.</p>
 <hr class="docutils" />
-<table class="docutils footnote" frame="void" id="fn-composer" rules="none">
+<table class="docutils footnote" frame="void" id="fn-apache2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Technically, Composer is language neutral and is thus not limited
-to managing PHP packages. A lot of efforts from the Composer folks
-are actually directed towards promoting Composer to handle
-JavaScript libraries, Ruby software, Python software, etc.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>In reality, loading both PHP 4 and PHP 5 as Apache modules only worked
+for a brief period of time until the two modules started exporting
+the same symbols, which led to clashes and ultimately, crashes.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="fn-distro" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Actually, you could also install one version using your distribution&#8217;s
+packages and only build additional versions from sources.</td></tr>
 </tbody>
 </table>
 </div>
@@ -206,9 +228,9 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
   <span style="position: absolute; left: 0px; width: 250px; text-align: left">
   
   
-  <a href="../05/First blog entry.html">
+  <a href="../../04/09/Various thoughts on Composer - Part 1.html">
     <i class="fa fa-arrow-circle-left"></i>
-    First blog entry
+    Various thoughts on Composer: Part 1
   </a>
   
   </span>
@@ -216,13 +238,6 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
   <a href="#"><i class="fa fa-arrow-circle-up"></i>Top</a>
   </span>
   <span style="position: absolute; width: 250px; right: 0px; text-align: right">
-  
-  
-  <a href="../../05/09/PHPFarm Heroes Series - A bit of history.html">
-    PHPFarm Heroes Series: A bit of history
-    <i class="fa fa-arrow-circle-right"></i>
-  </a>
-  </span>
   
 </div>
 
@@ -233,9 +248,9 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'fpoirotte';
-        var disqus_identifier = '/blog/2015/04/09/Various thoughts on Composer - Part 1/';
-        var disqus_title = 'Various thoughts on Composer: Part 1';
-        var disqus_url = 'https://fpoirotte.github.io/blog/2015/04/09/Various thoughts on Composer - Part 1';
+        var disqus_identifier = '/blog/2015/05/09/PHPFarm Heroes Series - A bit of history/';
+        var disqus_title = 'PHPFarm Heroes Series: A bit of history';
+        var disqus_url = 'https://fpoirotte.github.io/blog/2015/05/09/PHPFarm Heroes Series - A bit of history';
 
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -259,7 +274,7 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
   <h2>
   
   <i class="fa fa-calendar"></i>
-    Apr 09, 2015
+    May 09, 2015
   
   </h2>
 
@@ -290,7 +305,11 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
   <li><i class="fa-fw fa fa-folder-open"></i>
     
       
-      <a href="../../../category/php.html">php</a>
+      <a href="../../../category/php.html">php</a>,
+      
+    
+      
+      <a href="../../../category/phpfarm.html">phpfarm</a>
       
     </li>
   
@@ -299,7 +318,7 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
   <li><i class="fa-fw fa fa-tag"></i>
     
       
-      <a href="../../../tag/composer.html">composer</a>
+      <a href="../../../tag/phpfarm.html">phpfarm</a>
       
     </li>
   
@@ -318,7 +337,7 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
     }());
     </script>
     <i class="fa-fw fa fa-comments-o"></i>
-    <a href="#disqus_thread" data-disqus-identifier="/blog/2015/04/09/Various thoughts on Composer - Part 1/"> </a>
+    <a href="#disqus_thread" data-disqus-identifier="/blog/2015/05/09/PHPFarm Heroes Series - A bit of history/"> </a>
   </li>
   
   </ul>
@@ -361,9 +380,9 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
   <ul>
     
     
-      <li><a href="../../05/09/PHPFarm Heroes Series - A bit of history.html">May 09 - PHPFarm Heroes Series: A bit of history</a></li>
+      <li><a href="../../04/09/Various thoughts on Composer - Part 1.html">Apr 09 - Various thoughts on Composer: Part 1</a></li>
     
-      <li><a href="../05/First blog entry.html">Apr 05 - First blog entry</a></li>
+      <li><a href="../../04/05/First blog entry.html">Apr 05 - First blog entry</a></li>
     
   </ul>
 
