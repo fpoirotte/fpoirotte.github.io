@@ -7,7 +7,7 @@
 
 
 #######################################
-PHPFarm Heroes Series: A bit of history
+PHPFarm Episode 0: A bit of history
 #######################################
 
 Alright! In this new series of articles, we're not going to collect vegetables.
