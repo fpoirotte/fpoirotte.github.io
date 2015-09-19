@@ -74,8 +74,9 @@ No, can't do:
     you have to deal with the issue yourself.
 
 
-It's fairly safe to say most PHP developers will probably never hear of phpfarm,
-nor will they have any need for it. It is mainly aimed at specific needs:
+It's fairly safe to say that most PHP developers will probably
+never hear of phpfarm, nor will they have any need for it.
+It is mainly aimed at specific needs. Eg.
 
 *   Continuous integration
 
