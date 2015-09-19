@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    
+    <title>PHPFarm Episode 1: Getting started &mdash; François &#34;Clicky&#34; Poirotte&#39;s Blog</title>
+    <link rel="canonical" href="https://fpoirotte.github.io/" />
+
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="François &#34;Clicky&#34; Poirotte&#39;s Blog" href="../index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  
+  
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  
+  <style type="text/css">
+    ul.ablog-archive {list-style: none; overflow: auto; margin-left: 0px}
+    ul.ablog-archive li {float: left; margin-right: 5px; font-size: 80%}
+  </style>
+
+  </head>
+  <body>
+    <div class="related">
+      <ul>
+        <li>
+          <span>
+            <img alt="" title="Clicky" style="margin-left: 4px; vertical-align: middle"
+              src="//www.gravatar.com/avatar/abdd173a06c7738401c954f535814b8e?d=mm&s=28"/>
+            <a accesskey="H" style="padding-left: 5px"
+              href="../index.html">Clicky&#39;s Blog</a>
+          </span>
+        </li>
+
+        <li>
+          <span>
+            <a style="padding: 0px; margin-left: 20px"
+              href="https://fpoirotte.github.io/blog/atom.xml"><i class="fa fa-rss-square"></i></a>
+            <a accesskey="R" style="padding-left: 0px"
+              href="../blog.html">Recent Posts</a>
+          </span>
+          <ul>
+            <li><span><a href="2015/05/09/PHPFarm Episode 0 - A bit of history.html">May 09 - PHPFarm Episode 0: A bit of history</a></span></li>
+            <li><span><a href="2015/04/09/Various thoughts on Composer - Part 1.html">Apr 09 - Various thoughts on Composer: Part 1</a></span></li>
+            <li><span><a href="2015/04/05/First blog entry.html">Apr 05 - First blog entry</a></span></li>
+          </ul>
+        </li>
+
+        <li>
+          <span>
+            <a accesskey="C" href="category.html">
+              <i class="fa fa-folder-open"></i>
+              Categories
+            </a>
+          </span>
+          <ul>
+            <li><span><a href="category/php.html">php (2)</a></span></li>
+            <li><span><a href="category/phpfarm.html">phpfarm (1)</a></span></li>
+          </ul>
+        </li>
+
+
+        <li>
+          <span>
+            <a accesskey="A" href="archive.html">
+              <i class="fa fa-archive"></i>
+              Archives
+            </a>
+          </span>
+          <ul>
+            <li><span><a href="2015.html">2015 (3)</a></span></li>
+          </ul>
+        </li>
+
+        <li style="float: right; margin-right: 10px">
+          <span>
+          <a href="../search.html" style="padding: 5px 5px 5px 10px"><i class="fa fa-search"></i></a>
+          <form class="search" action="../search.html" method="get">
+            <input type="text" name="q" accesskey="/" style="width: 100px" />
+            <input type="submit" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+          </span>
+        </li>
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <blockquote>
+<div></div></blockquote>
+<div class="section" id="phpfarm-episode-1-getting-started">
+<h1>PHPFarm Episode 1: Getting started<a class="headerlink" href="#phpfarm-episode-1-getting-started" title="Permalink to this headline">¶</a></h1>
+<p>So far, I merely described the raison d&#8217;être of phpfarm.
+In this new post, we&#8217;ll get things rolling by actually using it
+to build and install a single version of PHP.</p>
+<div class="section" id="our-hopes-and-expectations">
+<h2>Our hopes and expectations<a class="headerlink" href="#our-hopes-and-expectations" title="Permalink to this headline">¶</a></h2>
+<p>phpfarm is a great tool, really. It provides for a very simple,
+and yet very flexible way to get multiple versions of PHP
+running side-by-side on a Linux or Mac system.</p>
+<p>At the same time, it is not always clear what to use it for and how.
+So, let&#8217;s first review what it can and cannot do.</p>
+<p>Can do:</p>
+<ul class="simple">
+<li>Build a stock PHP version from source on a standard Linux/Mac box.</li>
+<li>Script the installation of multiple versions with shared and
+version-specific build options.</li>
+<li>Isolate PHP versions from one another (separate binaries,
+separate configuration files, etc.)</li>
+<li>Automate the creation of a PEAR/Pyrus installation.</li>
+<li>Compile and install PECL extensions.</li>
+</ul>
+<p>No, can&#8217;t do:</p>
+<ul>
+<li><p class="first">Build PHP on a Microsoft Windows system.</p>
+<p>...but maybe? PHPFarm uses various tools from the Linux world (eg. gcc).
+While it may be possible to use these under Windows too using specific
+environments (eg. MingW or Cygwin), the resulting binaries would not really
+be native Windows executables, which may cause issues later on.</p>
+</li>
+<li><p class="first">Create &#8220;virtual environments&#8221;.</p>
+<p>Unlike Python&#8217;s <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> project which can be used to create
+separate copies (environments) of the same Python version, phpfarm
+can only be used to create exactly one copy per PHP version.</p>
+<p>However, this is generally not a problem unless your project uses
+function/class names that conflict with those from the PHP interpreter
+(either built-in names or through PHP extensions), or it relies on PEAR
+libraries.</p>
+</li>
+<li><p class="first">Help diagnose misconfigurations / incorrect setups and so on.</p>
+<p>While PHPFarm strives to give meaningful error messages for things under
+its control (eg. &#8220;Unknown option used when building ...&#8221;),
+there are many ways which can make a particular build fail,
+involving missing libraries/packages, bugs in third-party tools,
+incorrect options (eg. attempting to build a 64 bits version of PHP
+on a 32 bits system), etc.</p>
+<p>PHPFarm can&#8217;t detect those. In case such an error occurs,
+you have to deal with the issue yourself.</p>
+</li>
+</ul>
+<p>It&#8217;s fairly safe to say most PHP developers will probably never hear of phpfarm,
+nor will they have any need for it. It is mainly aimed at specific needs:</p>
+<ul>
+<li><p class="first">Continuous integration</p>
+<p>Because phpfarm offers many ways to customize the build and the installation
+process—akin to git hooks, it is perfect in situations where you need
+a repeatable way to build different PHP versions (eg. for testing purpose
+of a PHP extension or application.)</p>
+</li>
+<li><p class="first">Benchmarking</p>
+<p>PHPFarm can be useful if you&#8217;re looking for a quick way to set up
+a benchmark platform (eg. for performance comparison of some PHP code
+across various PHP versions.)</p>
+</li>
+</ul>
+</div>
+<div class="section" id="building-a-single-version-of-php">
+<h2>Building a single version of PHP<a class="headerlink" href="#building-a-single-version-of-php" title="Permalink to this headline">¶</a></h2>
+<p>Okay, now that we understand what PHPFarm can be used for, how do we actually
+use it?</p>
+<p>Provided you have a standard developer environment (a compiler, development
+headers, etc.), you first need to clone the project&#8217;s git repository:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">clicky@localhost:~/$</span> git clone https://github.com/fpoirotte/phpfarm.git
+</pre></div>
+</div>
+<p>This will create a <tt class="file docutils literal"><span class="pre">phpfarm</span></tt> folder in the current directory.
+Now, go to that folder and into the <tt class="file docutils literal"><span class="pre">src</span></tt> subfolder,
+this is where all the good stuff is:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">clicky@localhost:~$</span> <span class="nb">cd </span>phpfarm/src/
+</pre></div>
+</div>
+<p>Call <tt class="file docutils literal"><span class="pre">main.sh</span></tt> with the PHP version you want to build, eg.:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">clicky@localhost:~/phpfarm/src$</span> ./main.sh 7.0.0RC3
+</pre></div>
+</div>
+<p>With that last command, we instructed PHPFarm to build and install
+a version of PHP (in our case, 7.0.0RC3 which was released just a few days ago).
+Depending on your machine, this may take 2-20 minutes to complete,
+so now is probably a good time to take a break (and drink a cup of coffee).</p>
+<p>Once PHPFarm is done, go into the <tt class="file docutils literal"><span class="pre">inst</span></tt> directory at the top of PHPFarm&#8217;s
+sources, you should see something like this:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">clicky@localhost:~/phpfarm/src$</span> <span class="nb">cd</span> ../inst
+<span class="gp">clicky@localhost:~/phpfarm/inst$</span> ls -1p
+<span class="go">bin/</span>
+<span class="go">php-7.0.0RC3/</span>
+</pre></div>
+</div>
+<p>The <tt class="file docutils literal"><span class="pre">bin</span></tt> folder contains symbolic links to the various executables
+that were built as part of the PHP build process.</p>
+<p>To test our new installation, just call the php interpreter with a very basic
+script:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">clicky@localhost:~/phpfarm/inst$</span> bin/php-7.0.0RC3-debug -r <span class="s1">&#39;echo &quot;Hello world!&quot; . PHP_EOL;&#39;</span>
+<span class="go">Hello world!</span>
+</pre></div>
+</div>
+<p>Now, call the <tt class="file docutils literal"><span class="pre">switch-phpfarm</span></tt> script to mark the newly-built version
+as the main version of PHP.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">clicky@localhost:~/phpfarm/inst$</span> bin/switch-phpfarm 7.0.0RC3
+<span class="go">Setting active PHP version to 7.0.0RC3</span>
+<span class="go">PHP 7.0.0RC3 (cli) (built: Sep 19 2015 14:58:10)</span>
+<span class="go">Copyright (c) 1997-2015 The PHP Group</span>
+<span class="go">Zend Engine v3.0.0-dev, Copyright (c) 1998-2015 Zend Technologies</span>
+</pre></div>
+</div>
+<p>Calling <tt class="file docutils literal"><span class="pre">switch-phpfarm</span></tt> with no arguments displays a list of all installed
+PHP versions and the one that is currently selected as the main version.
+In my case, I have several versions installed and PHP 7.0.0RC3 is the main one
+as a result of the previous commands.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">clicky@localhost:~/phpfarm/inst$</span> bin/switch-phpfarm
+<span class="go">Available versions:</span>
+<span class="go">  5.3.29</span>
+<span class="go">  5.4.45</span>
+<span class="go">  5.5.29</span>
+<span class="go">  5.6.13</span>
+<span class="go">* 7.0.0RC3</span>
+</pre></div>
+</div>
+<p>Setting the main version creates a symbolic link called <tt class="file docutils literal"><span class="pre">current</span></tt>
+under the <tt class="file docutils literal"><span class="pre">inst</span></tt> folder. This is useful to get version-independent
+paths for the PHP executables:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">clicky@localhost:~/phpfarm/inst$</span> current/bin/php -v
+<span class="go">PHP 7.0.0RC3 (cli) (built: Sep 19 2015 14:58:10)</span>
+<span class="go">Copyright (c) 1997-2015 The PHP Group</span>
+<span class="go">Zend Engine v3.0.0-dev, Copyright (c) 1998-2015 Zend Technologies</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="down-to-business-customization">
+<h2>Down to business: customization<a class="headerlink" href="#down-to-business-customization" title="Permalink to this headline">¶</a></h2>
+<p>So far, we&#8217;ve seen how to build a single version of PHP.
+Notice that we did not specify any build options (<tt class="docutils literal"><span class="pre">--enable-xxx</span></tt>,
+<tt class="docutils literal"><span class="pre">--with-xxx</span></tt> and so on) to do so.</p>
+<p>In fact, PHPFarm used various default options for the build.
+These defaults are located in the <tt class="file docutils literal"><span class="pre">options.sh</span></tt> script under the <tt class="file docutils literal"><span class="pre">src</span></tt>
+folder. PHPFarm also create a <tt class="file docutils literal"><span class="pre">php.ini</span></tt> configuration file automatically,
+based on the contents of the <tt class="file docutils literal"><span class="pre">php.ini-development</span></tt> file bundled with
+the PHP sources and the <tt class="file docutils literal"><span class="pre">default-custom-php.ini</span></tt> from PHPFarm&#8217;s sources.</p>
+<p>But what if we wanted to used custom build options and custom <tt class="file docutils literal"><span class="pre">php.ini</span></tt>
+settings? First, create a folder named <tt class="file docutils literal"><span class="pre">custom</span></tt> at the root of phpfarm&#8217;s
+sources, and descend into it:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">clicky@localhost:~/phpfarm/inst$</span> mkdir ../custom
+<span class="gp">clicky@localhost:~/phpfarm/inst$</span> <span class="nb">cd</span> ../custom
+</pre></div>
+</div>
+<p>Now, create a file named <tt class="file docutils literal"><span class="pre">options.sh</span></tt>.
+This script should (re)define the <tt class="docutils literal"><span class="pre">$configoptions</span></tt> variable with whatever
+options fit your needs:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">clicky@localhost:~/phpfarm/custom$</span> cat options.sh
+<span class="gp">#</span> Build the JSON PHP extension as a dynamic library <span class="o">(</span>.so<span class="o">)</span>
+<span class="gp">#</span> in addition to extensions from the default options.sh script.
+<span class="go">configoptions=&quot;$configoptions --enable-json=shared&quot;</span>
+</pre></div>
+</div>
+<p>Similarly, you can create a file named <tt class="file docutils literal"><span class="pre">php.ini</span></tt> to overwrite settings
+from the <tt class="file docutils literal"><span class="pre">default-custom-php.ini</span></tt> file.</p>
+<div class="highlight-console"><div class="highlight"><pre>clicky@localhost:~/phpfarm/custom$ cat php.ini
+date.timezone=Europe/Paris
+
+# $ext_dir gets replaced with the full path
+# to the extensions&#39; directory by phpfarm.
+extension_dir=&quot;$ext_dir&quot;
+
+# Now, enable the JSON extension.
+extension=json.so
+</pre></div>
+</div>
+<p>That&#8217;s it for now...</p>
+</div>
+<div class="section" id="going-further">
+<h2>Going further<a class="headerlink" href="#going-further" title="Permalink to this headline">¶</a></h2>
+<p>In the next post in this series, I&#8217;ll explain how to manage multiple
+PHP versions and give you some tips about advanced usage of PHPFarm.</p>
+<p>In particular, I&#8217;d like to explain how I use it to manage PECL extensions
+and why I think most people do it wrong.</p>
+<hr class="docutils" />
+<p>Have you ever used PHPFarm on an esoteric operating system? Maybe even Windows?
+Did you know about the existence of the <tt class="file docutils literal"><span class="pre">custom</span></tt> folder and its content?</p>
+<p>Please tell me all about it using the comments form below!</p>
+</div>
+</div>
+
+  <div class="section">
+  
+    
+
+
+  
+  
+  </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  
+  
+  <h2>
+  
+    <i class="fa fa-pencil"></i>
+     Draft 
+  
+  </h2>
+
+  <ul class="nomargin">
+    
+
+  
+  <li><i class="fa-fw fa fa-user"></i>
+    
+      
+      <a href="author/francois-poirotte.html">François Poirotte</a>
+      
+    </li>
+  
+
+  
+
+  
+  <li><i class="fa-fw fa fa-flag"></i>
+    
+      
+      <a href="language/english.html">English</a>
+      
+    </li>
+  
+
+  
+  <li><i class="fa-fw fa fa-folder-open"></i>
+    
+      
+      <a href="category/php.html">php</a>,
+      
+    
+      
+      <a href="category/phpfarm.html">phpfarm</a>
+      
+    </li>
+  
+
+  
+  <li><i class="fa-fw fa fa-tag"></i>
+    
+      
+      <a href="tag/phpfarm.html">phpfarm</a>
+      
+    </li>
+  
+  
+  </ul>
+
+
+
+  <h3>
+    <a href="tag.html"><i class="fa fa-tags"></i></a>
+    <a accesskey="T" href="tag.html">Tags</a>
+  </h3>
+  <style type="text/css">
+    ul.ablog-cloud {list-style: none; overflow: auto;}
+    ul.ablog-cloud li {float: left; height: 20pt; line-height: 18pt; margin-right: 5px;}
+    ul.ablog-cloud a {text-decoration: none; vertical-align: middle;}
+    li.ablog-cloud-1{font-size: 80%;}
+    li.ablog-cloud-2{font-size: 95%;}
+    li.ablog-cloud-3{font-size: 110%;}
+    li.ablog-cloud-4{font-size: 125%;}
+    li.ablog-cloud-5{font-size: 140%;}
+  </style>
+  <ul class="ablog-cloud">
+    
+      
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="tag/composer.html">composer</a></li>
+      
+    
+      
+      <li class="ablog-cloud ablog-cloud-3">
+        <a href="tag/phpfarm.html">phpfarm</a></li>
+      
+    
+      
+    
+  </ul>
+
+  <h3>
+  <a href="https://fpoirotte.github.io/blog/atom.xml"><i class="fa fa-rss-square"></i></a>
+  <a href="../blog.html">Recent Posts</a></h3>
+  <ul>
+    
+    
+      <li><a href="2015/05/09/PHPFarm Episode 0 - A bit of history.html">May 09 - PHPFarm Episode 0: A bit of history</a></li>
+    
+      <li><a href="2015/04/09/Various thoughts on Composer - Part 1.html">Apr 09 - Various thoughts on Composer: Part 1</a></li>
+    
+      <li><a href="2015/04/05/First blog entry.html">Apr 05 - First blog entry</a></li>
+    
+  </ul>
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, F. Poirotte
+    </div>
+
+    
+
+    
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//stats.erebot.net/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 6]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//stats.erebot.net/piwik.php?idsite=6" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+    
+  </body>
+</html>

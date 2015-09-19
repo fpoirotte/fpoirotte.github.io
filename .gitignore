@@ -1,6 +1,8 @@
 /.buildinfo
 /.doctrees
 /_sources
+/blog/**/*.html
+/blog/**/*.xml
 *.pyc
 *.pyo
 .*.swp

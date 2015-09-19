@@ -3,7 +3,7 @@
    :category: php, phpfarm
    :tags: phpfarm
    :language: en
-   :excerpt: 3
+   :excerpt: 1
 
 
 #######################################
@@ -15,15 +15,16 @@ In this new post, we'll get things rolling by actually using it
 to build and install a single version of PHP.
 
 
-Dos and don'ts
-================
+Our hopes and expectations
+===========================
 
-phpfarm really is a great tool. It provides for a very simple,
+phpfarm is a great tool, really. It provides for a very simple,
 and yet very flexible way to get multiple versions of PHP
 running side-by-side on a Linux or Mac system.
 
-At the same time, it lacks some features that some people may want.
-So, let's review what it can and cannot do.
+At the same time, it is not always clear what to use it for and how.
+So, let's first review what it can and cannot do.
+
 
 Can do:
 
@@ -39,6 +40,7 @@ Can do:
 
 *   Compile and install PECL extensions.
 
+
 No, can't do:
 
 *   Build PHP on a Microsoft Windows system.
@@ -50,7 +52,7 @@ No, can't do:
 
 *   Create "virtual environments".
 
-    Unlike Python's ``virtualenv`` project which can be used to create
+    Unlike Python's `virtualenv`_ project which can be used to create
     separate copies (environments) of the same Python version, phpfarm
     can only be used to create exactly one copy per PHP version.
 
@@ -71,6 +73,7 @@ No, can't do:
     PHPFarm can't detect those. In case such an error occurs,
     you have to deal with the issue yourself.
 
+
 It's fairly safe to say most PHP developers will probably never hear of phpfarm,
 nor will they have any need for it. It is mainly aimed at specific needs:
 
@@ -84,7 +87,7 @@ nor will they have any need for it. It is mainly aimed at specific needs:
 *   Benchmarking
 
     PHPFarm can be useful if you're looking for a quick way to set up
-    a benchmarking platform (eg. for performance comparison of some PHP code
+    a benchmark platform (eg. for performance comparison of some PHP code
     across various PHP versions.)
 
 
@@ -94,15 +97,15 @@ Building a single version of PHP
 Okay, now that we understand what PHPFarm can be used for, how do we actually
 use it?
 
-Provided you have a standard developer environment (compilers, development
+Provided you have a standard developer environment (a compiler, development
 headers, etc.), you first need to clone the project's git repository:
 
 ..  sourcecode:: console
 
     clicky@localhost:~/$ git clone https://github.com/fpoirotte/phpfarm.git
 
-This will create a :dir:`phpfarm` folder in the current directory.
-Now, go to that folder and into the :dir:`src` subfolder,
+This will create a :file:`phpfarm` folder in the current directory.
+Now, go to that folder and into the :file:`src` subfolder,
 this is where all the good stuff is:
 
 ..  sourcecode:: console
@@ -120,7 +123,7 @@ a version of PHP (in our case, 7.0.0RC3 which was released just a few days ago).
 Depending on your machine, this may take 2-20 minutes to complete,
 so now is probably a good time to take a break (and drink a cup of coffee).
 
-Once PHPFarm is done, go into the :dir:`inst` directory at the top of PHPFarm's
+Once PHPFarm is done, go into the :file:`inst` directory at the top of PHPFarm's
 sources, you should see something like this:
 
 ..  sourcecode:: console
@@ -130,7 +133,7 @@ sources, you should see something like this:
     bin/
     php-7.0.0RC3/
 
-The :dir:`bin` folder contains symbolic links to the various executables
+The :file:`bin` folder contains symbolic links to the various executables
 that were built as part of the PHP build process.
 
 To test our new installation, just call the php interpreter with a very basic
@@ -168,7 +171,7 @@ as a result of the previous commands.
     * 7.0.0RC3
 
 Setting the main version creates a symbolic link called :file:`current`
-under the :dir:`inst` folder. This is useful to get version-independent
+under the :file:`inst` folder. This is useful to get version-independent
 paths for the PHP executables:
 
 ..  sourcecode:: console
@@ -187,13 +190,13 @@ Notice that we did not specify any build options (``--enable-xxx``,
 ``--with-xxx`` and so on) to do so.
 
 In fact, PHPFarm used various default options for the build.
-These defaults are located in the :file:`options.sh` script under the :dir:`src`
+These defaults are located in the :file:`options.sh` script under the :file:`src`
 folder. PHPFarm also create a :file:`php.ini` configuration file automatically,
 based on the contents of the :file:`php.ini-development` file bundled with
 the PHP sources and the :file:`default-custom-php.ini` from PHPFarm's sources.
 
 But what if we wanted to used custom build options and custom :file:`php.ini`
-settings? First, create a folder named :dir:`custom` at the root of phpfarm's
+settings? First, create a folder named :file:`custom` at the root of phpfarm's
 sources, and descend into it:
 
 ..  sourcecode:: console
@@ -236,10 +239,16 @@ Going further
 In the next post in this series, I'll explain how to manage multiple
 PHP versions and give you some tips about advanced usage of PHPFarm.
 
+In particular, I'd like to explain how I use it to manage PECL extensions
+and why I think most people do it wrong.
+
 ----
 
 Have you ever used PHPFarm on an esoteric operating system? Maybe even Windows?
-Did you know about the existence of the :dir:`custom` folder and its content?
+Did you know about the existence of the :file:`custom` folder and its content?
 
 Please tell me all about it using the comments form below!
 
+
+..  _`virtualenv`:
+    https://virtualenv.pypa.io/en/latest/

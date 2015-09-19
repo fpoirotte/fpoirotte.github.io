@@ -14,7 +14,8 @@ purge:
 publish: all
 	git add $(SPHINX_OBJS:=$(SPHINX_SUFFIX))
 	git add objects.inv searchindex.js
-	git add src/blog/ blog/
+	git add src/blog/
+	git add -f blog/
 	git commit -S -a
 	git push
 
