@@ -30,8 +30,8 @@ Back in the days when PHP 4 was still the most widely deployed version of PHP
 and PHP 5 was slowly starting to emerge, lots of developers were faced with
 a single problem: what version should they support?
 
-Sure enough, PHP 5 was *mainly* backwards compatible, so most scripts worked
-pretty much identically when running on the two versions.
+Sure enough, PHP 5 was largely backwards compatible, allowing *most* scripts
+to run pretty much identically on both versions.
 However, some corner cases were not handled exactly the same and so the need
 arose for a way to run PHP 4 and PHP 5 side-by-side to test them both.
 
