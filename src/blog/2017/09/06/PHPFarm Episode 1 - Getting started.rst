@@ -1,4 +1,4 @@
-.. post::i September 06, 2017
+.. post:: Sep 06, 2017
    :author: Clicky
    :category: php, phpfarm
    :tags: phpfarm
