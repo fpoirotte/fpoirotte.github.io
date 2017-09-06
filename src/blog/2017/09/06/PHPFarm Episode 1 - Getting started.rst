@@ -1,4 +1,4 @@
-.. post::
+.. post::i September 06, 2017
    :author: Clicky
    :category: php, phpfarm
    :tags: phpfarm
@@ -36,7 +36,7 @@ Can do:
 *   Isolate PHP versions from one another (separate binaries,
     separate configuration files, etc.)
 
-*   Automate the creation of a PEAR/Pyrus installation.
+*   Automate the installation of a PEAR workspace.
 
 *   Compile and install PECL extensions.
 
@@ -65,7 +65,7 @@ No, can't do:
 
     While PHPFarm strives to give meaningful error messages for things under
     its control (eg. "Unknown option used when building ..."),
-    there are many ways which can make a particular build fail,
+    there are many ways in which a particular build may fail,
     involving missing libraries/packages, bugs in third-party tools,
     incorrect options (eg. attempting to build a 64 bits version of PHP
     on a 32 bits system), etc.
@@ -80,16 +80,16 @@ It is mainly aimed at specific needs. Eg.
 
 *   Continuous integration
 
-    Because phpfarm offers many ways to customize the build and the installation
-    process |---| akin to git hooks, it is perfect in situations where you need
-    a repeatable way to build different PHP versions (eg. for testing purpose
-    of a PHP extension or application.)
+    Because phpfarm provides many hooks to customize the build and installation
+    processes, it is perfect in situations where you need a repeatable way to
+    build different PHP versions (eg. for the purpose of testing a PHP extension
+    or application)
 
 *   Benchmarking
 
     PHPFarm can be useful if you're looking for a quick way to set up
     a benchmark platform (eg. for performance comparison of some PHP code
-    across various PHP versions.)
+    across various PHP versions)
 
 
 Building a single version of PHP
