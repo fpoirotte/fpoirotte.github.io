@@ -11,23 +11,23 @@
     <link rel="canonical" href="https://fpoirotte.github.io/" />
 
     
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
+        URL_ROOT:    '../../../../',
         VERSION:     '',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="François &#34;Clicky&#34; Poirotte&#39;s Blog" href="../index.html" />
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="top" title="François &#34;Clicky&#34; Poirotte&#39;s Blog" href="../../../../index.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
@@ -49,7 +49,7 @@
             <img alt="" title="Clicky" style="margin-left: 4px; vertical-align: middle"
               src="//www.gravatar.com/avatar/abdd173a06c7738401c954f535814b8e?d=mm&s=28"/>
             <a accesskey="H" style="padding-left: 5px"
-              href="../index.html">Clicky&#39;s Blog</a>
+              href="../../../../index.html">Clicky&#39;s Blog</a>
           </span>
         </li>
 
@@ -58,45 +58,45 @@
             <a style="padding: 0px; margin-left: 20px"
               href="https://fpoirotte.github.io/blog/atom.xml"><i class="fa fa-rss-square"></i></a>
             <a accesskey="R" style="padding-left: 0px"
-              href="../blog.html">Recent Posts</a>
+              href="../../../../blog.html">Recent Posts</a>
           </span>
           <ul>
-            <li><span><a href="2015/05/09/PHPFarm Episode 0 - A bit of history.html">May 09 - PHPFarm Episode 0: A bit of history</a></span></li>
-            <li><span><a href="2015/04/09/Various thoughts on Composer - Part 1.html">Apr 09 - Various thoughts on Composer: Part 1</a></span></li>
-            <li><span><a href="2015/04/05/First blog entry.html">Apr 05 - First blog entry</a></span></li>
+            <li><span><a href="../../../2015/05/09/PHPFarm Episode 0 - A bit of history.html">May 09 - PHPFarm Episode 0: A bit of history</a></span></li>
+            <li><span><a href="../../../2015/04/09/Various thoughts on Composer - Part 1.html">Apr 09 - Various thoughts on Composer: Part 1</a></span></li>
+            <li><span><a href="../../../2015/04/05/First blog entry.html">Apr 05 - First blog entry</a></span></li>
           </ul>
         </li>
 
         <li>
           <span>
-            <a accesskey="C" href="category.html">
+            <a accesskey="C" href="../../../category.html">
               <i class="fa fa-folder-open"></i>
               Categories
             </a>
           </span>
           <ul>
-            <li><span><a href="category/php.html">php (2)</a></span></li>
-            <li><span><a href="category/phpfarm.html">phpfarm (1)</a></span></li>
+            <li><span><a href="../../../category/php.html">php (2)</a></span></li>
+            <li><span><a href="../../../category/phpfarm.html">phpfarm (1)</a></span></li>
           </ul>
         </li>
 
 
         <li>
           <span>
-            <a accesskey="A" href="archive.html">
+            <a accesskey="A" href="../../../archive.html">
               <i class="fa fa-archive"></i>
               Archives
             </a>
           </span>
           <ul>
-            <li><span><a href="2015.html">2015 (3)</a></span></li>
+            <li><span><a href="../../../2015.html">2015 (3)</a></span></li>
           </ul>
         </li>
 
         <li style="float: right; margin-right: 10px">
           <span>
-          <a href="../search.html" style="padding: 5px 5px 5px 10px"><i class="fa fa-search"></i></a>
-          <form class="search" action="../search.html" method="get">
+          <a href="../../../../search.html" style="padding: 5px 5px 5px 10px"><i class="fa fa-search"></i></a>
+          <form class="search" action="../../../../search.html" method="get">
             <input type="text" name="q" accesskey="/" style="width: 100px" />
             <input type="submit" value="Search" />
             <input type="hidden" name="check_keywords" value="yes" />
@@ -133,7 +133,7 @@ So, let&#8217;s first review what it can and cannot do.</p>
 version-specific build options.</li>
 <li>Isolate PHP versions from one another (separate binaries,
 separate configuration files, etc.)</li>
-<li>Automate the creation of a PEAR/Pyrus installation.</li>
+<li>Automate the installation of a PEAR workspace.</li>
 <li>Compile and install PECL extensions.</li>
 </ul>
 <p>No, can&#8217;t do:</p>
@@ -156,7 +156,7 @@ libraries.</p>
 <li><p class="first">Help diagnose misconfigurations / incorrect setups and so on.</p>
 <p>While PHPFarm strives to give meaningful error messages for things under
 its control (eg. &#8220;Unknown option used when building ...&#8221;),
-there are many ways which can make a particular build fail,
+there are many ways in which a particular build may fail,
 involving missing libraries/packages, bugs in third-party tools,
 incorrect options (eg. attempting to build a 64 bits version of PHP
 on a 32 bits system), etc.</p>
@@ -169,15 +169,15 @@ never hear of phpfarm, nor will they have any need for it.
 It is mainly aimed at specific needs. Eg.</p>
 <ul>
 <li><p class="first">Continuous integration</p>
-<p>Because phpfarm offers many ways to customize the build and the installation
-process—akin to git hooks, it is perfect in situations where you need
-a repeatable way to build different PHP versions (eg. for testing purpose
-of a PHP extension or application.)</p>
+<p>Because phpfarm provides many hooks to customize the build and installation
+processes, it is perfect in situations where you need a repeatable way to
+build different PHP versions (eg. for the purpose of testing a PHP extension
+or application)</p>
 </li>
 <li><p class="first">Benchmarking</p>
 <p>PHPFarm can be useful if you&#8217;re looking for a quick way to set up
 a benchmark platform (eg. for performance comparison of some PHP code
-across various PHP versions.)</p>
+across various PHP versions)</p>
 </li>
 </ul>
 </div>
@@ -308,10 +308,6 @@ Did you know about the existence of the <code class="file docutils literal"><spa
 
   <div class="section">
   
-    
-
-
-  
   
   </div>
 
@@ -320,67 +316,11 @@ Did you know about the existence of the <code class="file docutils literal"><spa
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  
-  
-  <h2>
-  
-    <i class="fa fa-pencil"></i>
-     Draft 
-  
-  </h2>
-
-  <ul class="nomargin">
-    
-
-  
-  <li><i class="fa-fw fa fa-user"></i>
-    
-      
-      <a href="author/francois-poirotte.html">François Poirotte</a>
-      
-    </li>
-  
-
-  
-
-  
-  <li><i class="fa-fw fa fa-flag"></i>
-    
-      
-      <a href="language/english.html">English</a>
-      
-    </li>
-  
-
-  
-  <li><i class="fa-fw fa fa-folder-open"></i>
-    
-      
-      <a href="category/php.html">php</a>,
-      
-    
-      
-      <a href="category/phpfarm.html">phpfarm</a>
-      
-    </li>
-  
-
-  
-  <li><i class="fa-fw fa fa-tag"></i>
-    
-      
-      <a href="tag/phpfarm.html">phpfarm</a>
-      
-    </li>
-  
-  
-  </ul>
-
 
 
   <h3>
-    <a href="tag.html"><i class="fa fa-tags"></i></a>
-    <a accesskey="T" href="tag.html">Tags</a>
+    <a href="../../../tag.html"><i class="fa fa-tags"></i></a>
+    <a accesskey="T" href="../../../tag.html">Tags</a>
   </h3>
   <style type="text/css">
     ul.ablog-cloud {list-style: none; overflow: auto;}
@@ -396,12 +336,12 @@ Did you know about the existence of the <code class="file docutils literal"><spa
     
       
       <li class="ablog-cloud ablog-cloud-3">
-        <a href="tag/composer.html">composer</a></li>
+        <a href="../../../tag/composer.html">composer</a></li>
       
     
       
       <li class="ablog-cloud ablog-cloud-3">
-        <a href="tag/phpfarm.html">phpfarm</a></li>
+        <a href="../../../tag/phpfarm.html">phpfarm</a></li>
       
     
       
@@ -410,15 +350,15 @@ Did you know about the existence of the <code class="file docutils literal"><spa
 
   <h3>
   <a href="https://fpoirotte.github.io/blog/atom.xml"><i class="fa fa-rss-square"></i></a>
-  <a href="../blog.html">Recent Posts</a></h3>
+  <a href="../../../../blog.html">Recent Posts</a></h3>
   <ul>
     
     
-      <li><a href="2015/05/09/PHPFarm Episode 0 - A bit of history.html">May 09 - PHPFarm Episode 0: A bit of history</a></li>
+      <li><a href="../../../2015/05/09/PHPFarm Episode 0 - A bit of history.html">May 09 - PHPFarm Episode 0: A bit of history</a></li>
     
-      <li><a href="2015/04/09/Various thoughts on Composer - Part 1.html">Apr 09 - Various thoughts on Composer: Part 1</a></li>
+      <li><a href="../../../2015/04/09/Various thoughts on Composer - Part 1.html">Apr 09 - Various thoughts on Composer: Part 1</a></li>
     
-      <li><a href="2015/04/05/First blog entry.html">Apr 05 - First blog entry</a></li>
+      <li><a href="../../../2015/04/05/First blog entry.html">Apr 05 - First blog entry</a></li>
     
   </ul>
 
