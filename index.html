@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     
-    <title>Clicky’s blog &mdash; François &#34;Clicky&#34; Poirotte&#39;s Blog</title>
+    <title>Clicky’s blog &#8212; François &#34;Clicky&#34; Poirotte&#39;s Blog</title>
     <link rel="canonical" href="https://fpoirotte.github.io/" />
 
     
@@ -26,6 +26,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="search" title="Search" href="search.html" />
     <link rel="top" title="François &#34;Clicky&#34; Poirotte&#39;s Blog" href="#" />
    
   
@@ -40,7 +41,7 @@
   </style>
 
   </head>
-  <body>
+  <body role="document">
     <div class="related">
       <ul>
         <li>
@@ -109,7 +110,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <blockquote>
 <div></div></blockquote>
@@ -119,10 +120,10 @@
 I discuss various topics related to programming and computers in general.</p>
 <hr class="docutils" />
 <p>Most recent posts:</p>
-<ul class="simple">
-<li>May 09 - <a class="reference internal" href="blog/2015/05/09/PHPFarm Episode 0 - A bit of history.html"><em>PHPFarm Episode 0: A bit of history</em></a></li>
-<li>Apr 09 - <a class="reference internal" href="blog/2015/04/09/Various thoughts on Composer - Part 1.html"><em>Various thoughts on Composer: Part 1</em></a></li>
-<li>Apr 05 - <a class="reference internal" href="blog/2015/04/05/First blog entry.html"><em>First blog entry</em></a></li>
+<ul class="postlist-style-none postlist simple">
+<li>May 09 - <a class="reference internal" href="blog/2015/05/09/PHPFarm Episode 0 - A bit of history.html">PHPFarm Episode 0: A bit of history</a></li>
+<li>Apr 09 - <a class="reference internal" href="blog/2015/04/09/Various thoughts on Composer - Part 1.html">Various thoughts on Composer: Part 1</a></li>
+<li>Apr 05 - <a class="reference internal" href="blog/2015/04/05/First blog entry.html">First blog entry</a></li>
 </ul>
 <hr class="docutils" />
 <p>You may also check out the various projects I contribute to:</p>
@@ -132,8 +133,8 @@ I discuss various topics related to programming and computers in general.</p>
 phpfarm allows you to run several versions of PHP alongside each other.</p>
 </li>
 <li><p class="first"><a class="reference external" href="https://github.com/Erebot/Plop">Plop</a></p>
-<p>A user-friendly yet very flexible logging system for PHP applications
-(compatible with the <a class="reference external" href="http://www.php-fig.org/psr/psr-3/">PSR-3</a> logging interface).</p>
+<p>A user-friendly yet very flexible logging system for PHP applications.
+Plop is compatible with the <a class="reference external" href="http://www.php-fig.org/psr/psr-3/">PSR-3</a> logging interface.</p>
 </li>
 <li><p class="first"><a class="reference external" href="https://github.com/fpoirotte/XRL">XRL</a></p>
 <p>An easy-to-use XML-RPC library for PHP (both as a client and a server)
@@ -141,11 +142,35 @@ with a syntax that feels very natural.</p>
 <p>It supports many common XML-RPC extensions and it handles type autoboxing.</p>
 </li>
 <li><p class="first"><a class="reference external" href="https://github.com/Erebot/Erebot">Erebot</a></p>
-<p>A modular IRC bot written in PHP.</p>
+<p>A modular IRC bot written in PHP.
+This project gave birth to multiple sub-projects:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/Erebot/URI">Erebot/URI</a>: URI processing made easy (both generation and parsing)</li>
+<li><a class="reference external" href="https://github.com/Erebot/CallableWrapper">Erebot/CallableWrapper</a>: handle various forms of callable code in PHP</li>
+<li><a class="reference external" href="https://github.com/Erebot/Timer">Erebot/Timer</a>: execute code after a given period of time has ellapsed</li>
+<li><a class="reference external" href="https://github.com/Erebot/DOM">Erebot/DOM</a>: enhancement over the standard PHP <a class="reference external" href="http://php.net/dom">DOM extension</a> that adds support for <a class="reference external" href="http://www.schematron.com/">Schematron</a> validation</li>
+<li><a class="reference external" href="https://github.com/Erebot/Intl">Erebot/Intl</a>: handle internationalization &amp; localization</li>
+<li><a class="reference external" href="https://github.com/Erebot/Styling">Erebot/Styling</a>: generate IRC-formatted output using a powerful markup language (with support for internalization)</li>
+</ul>
 </li>
-<li><p class="first"><a class="reference external" href="https://github.com/fpoirotte/pssht">Pssht</a></p>
+<li><p class="first"><a class="reference external" href="https://github.com/fpoirotte/StreamManager">StreamManager</a></p>
+<p>An event-oriented PHP stream manager, with supported for filtered streams.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/fpoirotte/tomcrypt">php_tomcrypt</a></p>
+<p>PHP bindings for the <a class="reference external" href="http://www.libtom.net/LibTomCrypt/">LibTomCrypt</a> cryptography library.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/fpoirotte/pssht">pssht</a></p>
 <p>A PHP library for building SSH servers with support for various
 advanced features.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/fpoirotte/push/">push</a></p>
+<p>A basic PHP shell Initially written for <a class="reference external" href="https://github.com/fpoirotte/pssht">pssht</a>.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/fpoirotte/cryptal">Cryptal</a></p>
+<p>The PHP Cryptography Abstraction Layer meant to ease the use of cryptographic primitives
+by abstracting away the differences between the various PHP cryptography extensions available.</p>
+<p>Includes <a class="reference external" href="https://packagist.org/providers/fpoirotte/cryptal-implementation">plugins</a>
+for the most common PHP extensions, as well as userland PHP implementations for some algorithms.</p>
 </li>
 </ul>
 </div>
@@ -158,7 +183,7 @@ advanced features.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 
 
@@ -212,7 +237,7 @@ advanced features.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2015, F. Poirotte
+      &copy;2015-2017, F. Poirotte
     </div>
 
     

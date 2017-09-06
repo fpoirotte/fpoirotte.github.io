@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     
-    <title>PHPFarm Episode 0: A bit of history &mdash; François &#34;Clicky&#34; Poirotte&#39;s Blog</title>
+    <title>PHPFarm Episode 0: A bit of history &#8212; François &#34;Clicky&#34; Poirotte&#39;s Blog</title>
     <link rel="canonical" href="https://fpoirotte.github.io/" />
 
     
@@ -26,6 +26,7 @@
     <script type="text/javascript" src="../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="top" title="François &#34;Clicky&#34; Poirotte&#39;s Blog" href="../../../../index.html" />
    
   
@@ -40,7 +41,7 @@
   </style>
 
   </head>
-  <body>
+  <body role="document">
     <div class="related">
       <ul>
         <li>
@@ -109,7 +110,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <blockquote>
 <div></div></blockquote>
@@ -143,10 +144,10 @@ Hence the success of PHP stacks like WAMP, LAMP and so on.</p>
 <p>As you may know, PHP can be integrated with a webserver in several ways.
 Take Apache 2.x for example, there are many different ways to run PHP there:</p>
 <ul class="simple">
-<li>As an Apache module (using <tt class="file docutils literal"><span class="pre">libphp5.so</span></tt>)</li>
+<li>As an Apache module (using <code class="file docutils literal"><span class="pre">libphp5.so</span></code>)</li>
 <li>As a (Fast)CGI server:<ul>
-<li>Either using the <tt class="file docutils literal"><span class="pre">php-cgi</span></tt> binary directly</li>
-<li>Or through a FastCGI Process Manager like <tt class="file docutils literal"><span class="pre">php-fpm</span></tt></li>
+<li>Either using the <code class="file docutils literal"><span class="pre">php-cgi</span></code> binary directly</li>
+<li>Or through a FastCGI Process Manager like <code class="file docutils literal"><span class="pre">php-fpm</span></code></li>
 </ul>
 </li>
 <li>Starting with PHP 5.4, you may even run PHP&#8217;s internal webserver
@@ -159,7 +160,7 @@ to trigger the execution of the PHP engine and to communicate with it.
 It can be either specific to a particular webserver (like the Apache module,
 which relies on the Apache2 SAPI), or it can be generic and use an
 interoperable protocol (like the FastCGI and internal webserver approaches).</p>
-<p>Only the first two methods (Apache module and <tt class="file docutils literal"><span class="pre">php-cgi</span></tt> binary)
+<p>Only the first two methods (Apache module and <code class="file docutils literal"><span class="pre">php-cgi</span></code> binary)
 were available when PHP 5.0.0 was first realeased.</p>
 </div>
 <div class="section" id="back-to-square-one">
@@ -174,7 +175,7 @@ Yep, that works too!</li>
 </ul>
 <p>What most people don&#8217;t know however is that you could also load both versions
 as Apache modules <a class="footnote-reference" href="#fn-apache2" id="id1">[1]</a>. Eg.</p>
-<div class="highlight-Apache"><div class="highlight"><pre><span class="nb">LoadModule</span> php_module        libphp.so
+<div class="highlight-Apache"><div class="highlight"><pre><span></span><span class="nb">LoadModule</span> php_module        libphp.so
 <span class="nb">LoadModule</span> php5_module       libphp5.so
 </pre></div>
 </div>
@@ -267,7 +268,7 @@ packages and only build additional versions from sources.</td></tr>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   
   
@@ -392,7 +393,7 @@ packages and only build additional versions from sources.</td></tr>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2015, F. Poirotte
+      &copy;2015-2017, F. Poirotte
     </div>
 
     

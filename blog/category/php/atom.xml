@@ -5,7 +5,7 @@
   <updated>2015-05-09T00:00:00Z</updated>
   <link href="https://fpoirotte.github.io/" />
   <link href="https://fpoirotte.github.io/blog/category/php/atom.xml" rel="self" />
-  <generator uri="http://blog.readthedocs.org" version="0.5.1">ABlog</generator>
+  <generator uri="http://ablog.readthedocs.org" version="0.8.4">ABlog</generator>
   <entry xml:base="https://fpoirotte.github.io/blog/category/php/atom.xml">
     <title type="text">PHPFarm Episode 0: A bit of history</title>
     <id>https://fpoirotte.github.io/blog/2015/05/09/PHPFarm Episode 0 - A bit of history.html</id>

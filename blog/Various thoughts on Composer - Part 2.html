@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     
-    <title>Various thoughts on Composer: Part 2 &mdash; François &#34;Clicky&#34; Poirotte&#39;s Blog</title>
+    <title>Various thoughts on Composer: Part 2 &#8212; François &#34;Clicky&#34; Poirotte&#39;s Blog</title>
     <link rel="canonical" href="https://fpoirotte.github.io/" />
 
     
@@ -26,6 +26,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="top" title="François &#34;Clicky&#34; Poirotte&#39;s Blog" href="../index.html" />
    
   
@@ -40,7 +41,7 @@
   </style>
 
   </head>
-  <body>
+  <body role="document">
     <div class="related">
       <ul>
         <li>
@@ -109,7 +110,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <blockquote>
 <div></div></blockquote>
@@ -117,7 +118,7 @@
 <span id="id1"></span><h1>Various thoughts on Composer: Part 2<a class="headerlink" href="#various-thoughts-on-composer-part-2" title="Permalink to this headline">¶</a></h1>
 <p>This is the second and final post of a series of articles about what I find
 to be defective in Composer itself or in the way it is usually employed.</p>
-<p>So, <a class="reference internal" href="2015/04/09/Various thoughts on Composer - Part 1.html#various-thoughts-on-composer-part-1"><em>last time</em></a>,
+<p>So, <a class="reference internal" href="2015/04/09/Various thoughts on Composer - Part 1.html#various-thoughts-on-composer-part-1"><span class="std std-ref">last time</span></a>,
 I wrote about my concerns on the way security is handled by Composer.
 This time, I&#8217;ll be writing about the use of virtual packages
 by the PHP community.</p>
@@ -139,11 +140,11 @@ most PHP applications didn&#8217;t do just over a decade ago).</p>
 like my very own <a class="reference external" href="https://plop.readthedocs.org/en/latest/">Plop</a>. To help interoperability, the <a class="reference external" href="http://www.php-fig.org/"><abbr title="PHP Framework Interop Group">PHP-FIG</abbr></a> created the
 <abbr title="PHP Standards Recommendation #3">PSR-3</abbr>, a logging interface that logging libraries must implement.
 Once the interface has been implemented, the package for the logging library
-should declare that it <tt class="docutils literal"><span class="pre">provides</span></tt> the <a class="reference external" href="https://packagist.org/packages/psr/log-implementation">psr/log-implementation</a>
+should declare that it <code class="docutils literal"><span class="pre">provides</span></code> the <a class="reference external" href="https://packagist.org/packages/psr/log-implementation">psr/log-implementation</a>
 virtual package.</p>
 <p>Applications that want to use the interoperable interface thus only need to add
-a <tt class="docutils literal"><span class="pre">require</span></tt> dependency on <tt class="docutils literal"><span class="pre">psr/log</span></tt>.
-They can then use the <tt class="docutils literal"><span class="pre">Psr\\Log\\LoggerInterface</span></tt> interface as a typehint
+a <code class="docutils literal"><span class="pre">require</span></code> dependency on <code class="docutils literal"><span class="pre">psr/log</span></code>.
+They can then use the <code class="docutils literal"><span class="pre">Psr\\Log\\LoggerInterface</span></code> interface as a typehint
 wherever a logger is needed.</p>
 <p>The problem is that you must <strong>already</strong> have a virtual package for all of this
 to work properly. That also means that you come to an agreement with other
@@ -178,7 +179,7 @@ Please share your thoughts and experiences in the comments below.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   
   
@@ -287,7 +288,7 @@ Please share your thoughts and experiences in the comments below.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2015, F. Poirotte
+      &copy;2015-2017, F. Poirotte
     </div>
 
     

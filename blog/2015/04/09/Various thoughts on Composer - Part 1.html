@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     
-    <title>Various thoughts on Composer: Part 1 &mdash; François &#34;Clicky&#34; Poirotte&#39;s Blog</title>
+    <title>Various thoughts on Composer: Part 1 &#8212; François &#34;Clicky&#34; Poirotte&#39;s Blog</title>
     <link rel="canonical" href="https://fpoirotte.github.io/" />
 
     
@@ -26,6 +26,7 @@
     <script type="text/javascript" src="../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="top" title="François &#34;Clicky&#34; Poirotte&#39;s Blog" href="../../../../index.html" />
    
   
@@ -40,7 +41,7 @@
   </style>
 
   </head>
-  <body>
+  <body role="document">
     <div class="related">
       <ul>
         <li>
@@ -109,7 +110,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <blockquote>
 <div></div></blockquote>
@@ -153,14 +154,14 @@ about the certificate being invalid. They would probably just
 bypass the warning by using whatever option the program provides
 to ignore it.</p>
 </li>
-<li><p class="first">Secondly, and more importantly, the way the <tt class="file docutils literal"><span class="pre">composer.phar</span></tt> archive
+<li><p class="first">Secondly, and more importantly, the way the <code class="file docutils literal"><span class="pre">composer.phar</span></code> archive
 is fetched can still be unsafe because the installation instructions
 say:</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>If the above fails for some reason, you can download the installer
-with <tt class="file docutils literal"><span class="pre">php</span></tt> instead:</p>
-<div class="last highlight-bash"><div class="highlight"><pre>php -r <span class="s2">&quot;readfile(&#39;https://getcomposer.org/installer&#39;);&quot;</span> <span class="p">|</span> php
+with <code class="file docutils literal"><span class="pre">php</span></code> instead:</p>
+<div class="last highlight-bash"><div class="highlight"><pre><span></span>php -r <span class="s2">&quot;readfile(&#39;https://getcomposer.org/installer&#39;);&quot;</span> <span class="p">|</span> php
 </pre></div>
 </div>
 </div>
@@ -252,7 +253,7 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   
   
@@ -373,7 +374,7 @@ JavaScript libraries, Ruby software, Python software, etc.</td></tr>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2015, F. Poirotte
+      &copy;2015-2017, F. Poirotte
     </div>
 
     
